@@ -1,0 +1,25 @@
+/* src/styles/theme.css */
+:root {
+    /* 主色：水蓝 */
+    --color-primary:      #039BE5;  /* 深一点的水蓝 */
+    --color-primary-dark: #0277BD;  /* 更深 */
+    --color-primary-light:#4FC3F7;  /* 只做辅助，高亮用 */
+  
+    /* 文字与背景 */
+    --color-text-primary:   #333333;
+    --color-bg-light:       #FFFFFF;
+    --color-bg-subtle:      #F5F9FC;
+    --color-border:         #E0E0E0;
+  
+    /* 强调色：同主色 */
+    --color-accent:         var(--color-primary);
+  }
+  
+  /* 移动端（最大 767px）可以使用更亮的水蓝 */
+  @media (max-width: 767px) {
+    :root {
+      --color-primary:       #81D4FA;
+      --color-primary-light: #E1F5FE;
+      --color-primary-dark:  #039BE5;
+    }
+  }

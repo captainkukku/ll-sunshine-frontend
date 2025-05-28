@@ -1,0 +1,17 @@
+/* src/pages/Home.css */
+.home-container {
+  display: flex;
+  height: 100%;      /* 填满 App 给的 100% */
+  overflow: hidden;   /* 防止双滚动条 */
+}
+
+.sidebar {
+  width: 280px;       /* 侧栏固定宽度 */
+  /* 侧栏自己内部滚动 */
+  overflow-y: auto;
+}
+
+.map-wrapper {
+  flex: 1;            /* 剩余空间都给地图 */
+  position: relative; /* 便于内部绝对定位 */
+}

@@ -1,0 +1,4 @@
+.compare-wrapper{
+  width:100%;height:200px;margin-bottom:12px;
+}
+.compare-wrapper img{object-fit:cover;height:100%;}

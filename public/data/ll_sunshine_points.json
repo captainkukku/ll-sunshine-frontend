@@ -1,0 +1,76 @@
+[
+  {
+    "id": "numazu-station",
+    "name": "沼津站北口",
+    "ep": 1,
+    "lat": 35.10193,
+    "lng": 138.85948,
+    "ref": "",
+    "characterId": "chika"
+  },
+  {
+    "id": "ume-yashiki",
+    "name": "梅屋敷駅",
+    "ep": 2,
+    "lat": 35.09258,
+    "lng": 138.84489,
+    "ref": "",
+    "characterId": "chika"
+  },
+  {
+  "id": "kog35rnei_x",
+  "characterId": "chika",              
+  "cn": "淡岛码头 (测试)",
+  "name": "淡島船乗り場 (test)",
+  "lat": 35.0342,
+  "lng": 138.8905,
+  "ep": 1,
+  "s": 627,
+  "ref": "./screenshots/kog35rnei-1716481217772.jpg"
+},
+{
+  "id": "kpkpcc4bq_x",
+  "characterId": "chika",          
+  "cn": "伊豆長岡駅 (测试)",
+  "name": "伊豆長岡駅 (test)",
+  "lat": 35.0397,
+  "lng": 138.9472,
+  "ep": 6,
+  "s": 571,
+  "ref": "./screenshots/kpkpcc4bq-1716569622347.jpg"
+},
+{
+  "id": "kpksyfo5h_x",
+  "characterId": "chika",             
+  "cn": "松月店内 (测试)",
+  "name": "松月店内 (test)",
+  "lat": 35.0222,
+  "lng": 138.8979,
+  "ep": 6,
+  "s": 627,
+  "ref": "./screenshots/kpksyfo5h-1716569844025.jpg"
+},
+{
+  "id": "kpoufr3sr_x",
+  "characterId": "chika",             
+  "cn": "男坂 (测试)",
+  "name": "男坂 (test)",
+  "lat": 35.7013,
+  "lng": 139.7683,
+  "ep": 7,
+  "s": 714,
+  "ref": "./screenshots/kpoufr3sr-1716578640930.jpg"
+},
+{
+  "id": "kpprsbydw_x",
+  "characterId": "yoshiko",        
+  "cn": "淡島神社 (测试)",
+  "name": "淡島神社 (test)",
+  "lat": 35.033,
+  "lng": 138.8877,
+  "ep": 9,
+  "s": 246,
+  "ref": "./screenshots/kpprsbydw-1716580668216.jpg"
+}
+
+]

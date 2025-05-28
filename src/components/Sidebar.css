@@ -1,0 +1,108 @@
+/* ✅ Sidebar.css - 第二轮美化：logo + 搜索框 + 滑块筛选 + 历史列表 */
+
+.sidebar {
+  width: 300px;
+  background: #e6f7fb;
+  padding: 1.2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ccc;
+  min-height: 100vh;
+}
+
+
+
+.sidebar-search {
+  width: 90%;
+  max-width: 220px;
+  padding: 0.6rem;
+  margin: 0 auto 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  text-align: left;
+  background: white;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
+}
+
+.sidebar-toggle {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.sidebar-count {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-subtitle {
+  font-size: 1rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+  color: #333;
+  padding-left: 0.2rem;
+}
+
+.sidebar-history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-history-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.4rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+/* 历史缩略 */
+.sidebar-history-title{ margin:14px 0 6px; }
+.history-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.history-thumb{
+  width:40px; height:40px;
+  border-radius:50%;
+  object-fit:cover;
+  cursor:pointer;
+}
+.history-empty{
+  background:#d1d5db;
+  color:#555;
+  font-size:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* -------- Logo 尺寸限制 -------- */
+.logo-wrapper{
+  padding: 14px 0;                 /* 与两侧留白 */
+  text-align: center;
+}
+.logo-img{
+  max-width: 280px;                /* ← 想更小就改这里 */
+  width: 100%;
+  height: auto;                    /* 保持比例 */
+}
+.search-input{
+  width:100%;
+  height:36px;
+  padding:4px 10px;
+  border:1px solid #888;
+  border-radius:6px;
+  box-sizing:border-box;
+}

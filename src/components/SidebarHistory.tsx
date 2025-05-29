@@ -33,7 +33,10 @@ const SidebarHistory: React.FC<Props> = ({ points, checkins, onSelect }) => {
       {historyItems.length > 0 ? (
         historyItems
       ) : (
-        <div className="history-empty">暂无打卡历史</div>
+        <div className="history-empty">
+  <span role="img" aria-label="empty">🕳️</span> 🌈 这里还没有属于你的打卡记录哦！
+</div>
+
       )}
     </div>
   );

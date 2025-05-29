@@ -1,4 +1,9 @@
-.compare-wrapper{
-  width:100%;height:200px;margin-bottom:12px;
+.compare-canvas {
+  width: 100%;
+  height: auto;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  touch-action: none;    /* 禁默认手势 */
+  user-select: none;
+  background: #fafafa;
 }
-.compare-wrapper img{object-fit:cover;height:100%;}

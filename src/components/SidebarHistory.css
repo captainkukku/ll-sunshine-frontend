@@ -4,9 +4,24 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  max-height: 100%;
+  /* 侧栏顶部 + 底部留白，根据实际调整 */
+  height: calc(100vh - 80px); /* 假设顶部有 Header，底部有点空间 */
+  max-height: 600px; /* 或直接定死，比如600px，按需求改 */
   padding: 8px;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #90caf9 #f5f5f5;
 }
+
+/* 美化滚动条 - Chrome/Safari */
+.history-bar::-webkit-scrollbar {
+  width: 8px;
+  background: #f5f5f5;
+}
+.history-bar::-webkit-scrollbar-thumb {
+  background: #90caf9;
+  border-radius: 8px;
+}
+
 .history-item {
   display: flex;
   align-items: center;
@@ -31,10 +46,13 @@
   text-overflow: ellipsis;
 }
 .history-empty {
-  font-size: 18px;
-  color: #666;
+  font-size: 22px;   /* 更大一点 */
+  color: #bbb;
   text-align: center;
-  margin: 24px 0;
-  background: none;
+  margin: 40px 0 0 0;
+  background: none;  /* 不要背景 */
   padding: 0;
+  letter-spacing: 2px;
+  user-select: none;
+  opacity: 0.8;
 }

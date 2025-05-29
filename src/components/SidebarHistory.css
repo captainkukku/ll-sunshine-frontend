@@ -1,2 +1,40 @@
-.history-bar{display:flex;flex-wrap:wrap;padding:4px 0;}
-.history-thumb{width:48px;height:48px;margin:4px;border-radius:50%;object-fit:cover;cursor:pointer;}
+
+/* SidebarHistory.css */
+.history-bar {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 100%;
+  padding: 8px;
+}
+.history-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.history-item:last-child {
+  margin-bottom: 0;
+}
+.history-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+.history-name {
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.history-empty {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  margin: 24px 0;
+  background: none;
+  padding: 0;
+}

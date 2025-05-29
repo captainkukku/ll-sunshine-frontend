@@ -1,60 +1,166 @@
+/* MarkerModal.css */
+
+/* 品牌色变量 */
+:root {
+  --brand-blue: #5AC8FA;
+  --brand-gray: #CCCCCC;
+}
+
+/* 蒙层 */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 1000;
 }
 
+/* 弹窗容器 */
 .modal-container {
-  background: white;
+  background: #ffffff;
   border-radius: 12px;
-  padding: 24px;
-  width: 90%;
   max-width: 480px;
-  max-height: 90vh;
+  width: 90%;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 90%;
   overflow-y: auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* 标题 */
 .modal-header h2 {
-  margin: 0 0 8px;
-  font-size: 22px;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
 }
 
-.modal-screenshot img {
+.modal-header p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* 原作截图 & 对比图预览 区域 */
+.modal-screenshot,
+.modal-preview {
   width: 100%;
-  border-radius: 8px;
-  margin: 12px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f5f5f5;
 }
 
+.modal-screenshot img,
+.modal-preview {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* 占位提示 */
+.modal-placeholder {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  background: #fafafa;
+  border: 1px dashed #ddd;
+  border-radius: 6px;
+}
+
+/* 操作区域 */
 .modal-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 16px;
+  justify-content: flex-end;
 }
 
-.modal-actions button {
-  flex: 1;
-  padding: 10px;
+/* 通用按钮 & 上传区 */
+button,
+.upload-area {
+  font-size: 0.95rem;
+  padding: 10px 16px;
   border-radius: 6px;
-  border: none;
   cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
 }
 
-.modal-placeholder {
-  width: 100%;
-  height: 180px;
-  background: #f0f0f0;
-  color: #aaa;
-  font-size: 14px;
-  display: flex;
+/* 主按钮（水蓝底白字） */
+.btn-primary {
+  background: var(--brand-blue);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* 辅助按钮（蓝边透明底） */
+.btn-outline {
+  background: transparent;
+  color: var(--brand-blue);
+  border: 2px solid var(--brand-blue);
+}
+
+.btn-outline:hover {
+  background: rgba(90, 200, 250, 0.1);
+}
+
+/* 拖拽 / 点击上传区域 */
+.upload-area {
+  flex: 1 1 120px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 2px dashed #ccc;
+  color: #666;
+  text-align: center;
+  background: #fafafa;
+}
+
+.upload-area:hover {
+  background: #f0f8ff;
+  border-color: var(--brand-blue);
+}
+
+/* PC端隐藏“打卡”按钮 */
+@media (min-width: 768px) {
+  .btn-checkin {
+    display: none;
+  }
+}
+
+/* 移动端按钮样式 */
+@media (max-width: 767px) {
+  /* 蓝色上传 */
+  .btn-upload-mobile {
+    background: var(--brand-blue);
+    color: #fff;
+    border: none;
+  }
+  .btn-upload-mobile:hover {
+    opacity: 0.9;
+  }
+
+  /* 灰色打卡 */
+  .btn-checkin-mobile {
+    background: var(--brand-gray);
+    color: #333;
+    border: none;
+  }
+  .btn-checkin-mobile:hover {
+    opacity: 0.9;
+  }
 }

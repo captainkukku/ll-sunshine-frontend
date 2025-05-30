@@ -6,6 +6,8 @@ import MarkerModal from '../components/MarkerModal';
 import { MapViewRef, Point, CheckinInfo } from '../types';
 import characterMap from '../config/characterMap';
 import './Home.css';
+import SidebarHistory from '../components/SidebarHistory';
+
 
 const Home: React.FC = () => {
   const [checkedMap, setCheckedMap] = useState<Record<string, CheckinInfo>>(
@@ -103,6 +105,15 @@ const Home: React.FC = () => {
           selectedId={selectedId}
           onMarkerClick={handleSelect}
           // ↓ 可选：如果 MapView 里还有 showOnlyXXX props，请全部删掉
+        />
+            </div> {/* 结束 map-container */}
+
+      {/* ====== 仅移动端显示历史列表 ====== */}
+      <div className="mobile-history">
+        <SidebarHistory
+          points={displayPoints}
+          checkins={checkedMap}
+          onSelect={handleSelect}
         />
 
         {selectedId && (

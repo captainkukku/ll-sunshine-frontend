@@ -1,58 +1,62 @@
-
-/* SidebarHistory.css */
 .history-bar {
+  margin-top: 8px;
+}
+.history-title {
+  font-size: 1.15em;
+  font-weight: bold;
+  color: #444;
+  margin: 10px 0 8px 18px;
   display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  /* 侧栏顶部 + 底部留白，根据实际调整 */
-  height: calc(100vh - 80px); /* 假设顶部有 Header，底部有点空间 */
-  max-height: 600px; /* 或直接定死，比如600px，按需求改 */
-  padding: 8px;
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #90caf9 #f5f5f5;
+  align-items: center;
 }
-
-/* 美化滚动条 - Chrome/Safari */
-.history-bar::-webkit-scrollbar {
-  width: 8px;
-  background: #f5f5f5;
+.history-empty-plain {
+  color: #aaa;
+  font-size: 1em;
+  margin: 10px 0 20px 18px;
 }
-.history-bar::-webkit-scrollbar-thumb {
-  background: #90caf9;
-  border-radius: 8px;
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0;
 }
-
 .history-item {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   cursor: pointer;
+  font-weight: bold;
+  color: #2a3551;
+  font-size: 1.13em;
+  transition: background 0.13s;
+  padding: 8px 0 8px 14px;
+  border-radius: 10px;
 }
-.history-item:last-child {
-  margin-bottom: 0;
+.history-item:hover {
+  background: #e3f2fd;
 }
 .history-thumb {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   object-fit: cover;
-  border-radius: 4px;
-  margin-right: 8px;
+  border-radius: 12px;
+  margin-right: 14px;
+  background: #eee;
+  border: 1.5px solid #dbefff;
+}
+.history-thumb-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #dedede;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 2.3em;
+  margin-right: 14px;
+  font-weight: 700;
 }
 .history-name {
-  font-size: 14px;
-  color: #333;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.history-empty {
-  font-size: 22px;   /* 更大一点 */
-  color: #bbb;
-  text-align: center;
-  margin: 40px 0 0 0;
-  background: none;  /* 不要背景 */
-  padding: 0;
-  letter-spacing: 2px;
-  user-select: none;
-  opacity: 0.8;
+  font-weight: bold;
+  font-size: 1em;
 }

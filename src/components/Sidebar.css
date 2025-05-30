@@ -1,109 +1,87 @@
-/* ✅ Sidebar.css - 第二轮美化：logo + 搜索框 + 滑块筛选 + 历史列表 */
-
+/* ----- 调整侧栏宽度和 Logo ---- */
 .sidebar {
-  width: 300px;
-  height: 100vh;
-  background: #e6f7fb;
-  padding: 1.2rem;
-  box-sizing: border-box;
+  width: 260px;               /* 从 300 → 260，留更多地图空间 */
+  background: #e7f9fd;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #ccc;
-  min-height: 100vh;
-}
-
-
-
-.sidebar-search {
-  width: 90%;
-  max-width: 220px;
-  padding: 0.6rem;
-  margin: 0 auto 1rem;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-  text-align: left;
-  background: white;
-  box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
-}
-
-.sidebar-toggle {
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.sidebar-count {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #555;
-  margin-bottom: 0.5rem;
-}
-
-.sidebar-subtitle {
-  font-size: 1rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.4rem;
-  color: #333;
-  padding-left: 0.2rem;
-}
-
-.sidebar-history {
-  list-style: none;
   padding: 0;
-  margin: 0;
+  border-right: 1px solid #ddeaf6;
 }
 
-.sidebar-history-item {
+.logo-img {
+  width: 200px;               /* 从 240 → 200，留更多控件空间 */
+  margin: 16px auto 8px;      /* 上下留白均匀些 */
+  display: block;
+}
+
+/* ----- 搜索框微调 ----- */
+.search-input {
+  width: 85%;                 /* 小幅缩窄 */
+  margin: 0 auto 12px;        /* 底部间距加大 */
+  height: 36px;
+  border-radius: 6px;
+  border: 1.2px solid #c7e7f9;
+  padding: 0 10px;
+  font-size: 0.95em;          /* 略微缩小字 */
+  background: #f9fcff;
+}
+
+/* ----- 筛选 + 统计 横排 ----- */
+.filter-block {
   display: flex;
+  flex-wrap: wrap;            /* 窄屏自动换行 */
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 0.4rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background 0.2s;
+  gap: 12px;                  /* 标签间隙 */
+  padding: 0 16px 12px;       /* 左右内边距 + 底部间距 */
+}
+.filter-block label {
+  font-size: 0.97em;
+  white-space: nowrap;        /* 不自动换行文本 */
+}
+/* 把统计也拉到同一行 */
+.filter-block .checked-count {
+  margin-left: auto;          /* 靠右 */
+  font-size: 0.95em;
+  color: #555;
+  white-space: nowrap;
 }
 
-/* 历史缩略 */
-.sidebar-history-title{ margin:14px 0 6px; }
-.history-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.history-thumb{
-  width:40px; height:40px;
-  border-radius:50%;
-  object-fit:cover;
-  cursor:pointer;
-}
-.history-empty{
-  background:#d1d5db;
-  color:#555;
-  font-size:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* -------- Logo 尺寸限制 -------- */
-.logo-wrapper{
-  padding: 14px 0;                 /* 与两侧留白 */
+/* ----- 打卡历史标题和空态 ----- */
+.history-title {
   text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #444;
+  margin: 12px 0 8px;
 }
-.logo-img{
-  max-width: 280px;                /* ← 想更小就改这里 */
-  width: 100%;
-  height: auto;                    /* 保持比例 */
+.history-empty-plain {
+  color: #aaa;
+  font-size: 0.95em;
+  margin: 8px 0 20px;
 }
-.search-input{
-  width:100%;
-  height:36px;
-  padding:4px 10px;
-  border:1px solid #888;
-  border-radius:6px;
-  box-sizing:border-box;
+
+/* ----- 移动端再微调 ----- */
+@media (max-width: 700px) {
+  .sidebar {
+    width: 100vw;
+    min-height: auto;
+  }
+  .logo-img {
+    width: 140px;
+    margin: 8px auto 6px;
+  }
+  .search-input {
+    width: 90%;
+    margin-bottom: 8px;
+  }
+  .filter-block {
+    padding: 0 8px 8px;
+    gap: 8px;
+  }
+  .filter-block .checked-count {
+    margin-left: 0;
+    width: 100%;
+    text-align: right;
+  }
 }

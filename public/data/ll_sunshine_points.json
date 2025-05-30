@@ -1,76 +1,1310 @@
 [
   {
-    "id": "numazu-station",
-    "name": "沼津站北口",
+    "id": "kog35rnei",
+    "cn": "淡岛码头",
+    "name": "淡島船乗り場",
+    "geo": [
+      35.0342,
+      138.8905
+    ],
     "ep": 1,
-    "lat": 35.10193,
-    "lng": 138.85948,
-    "ref": "",
-    "characterId": "chika"
+    "s": 627,
+    "ref": "https://image.anitabi.cn/user/0/bangumi/165553/points/kog35rnei-1716481217772.jpg"
   },
   {
-    "id": "ume-yashiki",
-    "name": "梅屋敷駅",
+    "id": "kpkpcc4bq",
+    "cn": "伊豆長岡駅",
+    "name": "伊豆長岡駅",
+    "geo": [
+      35.0397,
+      138.9472
+    ],
+    "ep": 6,
+    "s": 571,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kpkpcc4bq-1716569622347.jpg"
+  },
+  {
+    "id": "kpksyfo5h",
+    "cn": "松月店内",
+    "name": "松月店内",
+    "geo": [
+      35.0222,
+      138.8979
+    ],
+    "ep": 6,
+    "s": 627,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kpksyfo5h-1716569844025.jpg"
+  },
+  {
+    "id": "kpoufr3sr",
+    "cn": "男坂",
+    "name": "男坂",
+    "geo": [
+      35.7013,
+      139.7683
+    ],
+    "ep": 7,
+    "s": 714,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kpoufr3sr-1716578640930.jpg"
+  },
+  {
+    "id": "kpprsbydw",
+    "cn": "淡島神社",
+    "name": "淡島神社",
+    "geo": [
+      35.033,
+      138.8877
+    ],
+    "ep": 9,
+    "s": 246,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kpprsbydw-1716580668216.jpg"
+  },
+  {
+    "id": "krc7p059x",
+    "cn": "弁天島神社鳥居",
+    "name": "弁天島神社鳥居",
+    "geo": [
+      35.0195,
+      138.8855
+    ],
+    "ep": 9,
+    "s": 425,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krc7p059x-1716707860647.jpg"
+  },
+  {
+    "id": "krca8zqv6",
+    "cn": "弁天島神社",
+    "name": "弁天島神社",
+    "geo": [
+      35.0198,
+      138.8856
+    ],
+    "ep": 9,
+    "s": 433,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krca8zqv6-1716708017424.jpg"
+  },
+  {
+    "id": "krc0e8ihl",
+    "cn": "弁天島神社から降りてきた千歌たち",
+    "name": "弁天島神社から降りてきた千歌たち",
+    "geo": [
+      35.0195,
+      138.885
+    ],
+    "ep": 9,
+    "s": 537,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krc0e8ihl-1716707416238.jpg"
+  },
+  {
+    "id": "kpqtp6igz",
+    "cn": "唯念名号碑",
+    "name": "唯念名号碑",
+    "geo": [
+      35.0168,
+      138.8916
+    ],
+    "ep": 9,
+    "s": 984,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kpqtp6igz-1716582936383.jpg"
+  },
+  {
+    "id": "krc8mijnf",
+    "cn": "弁天島神社参道",
+    "name": "弁天島神社参道",
+    "geo": [
+      35.0197,
+      138.8855
+    ],
+    "ep": 9,
+    "s": 445,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krc8mijnf-1716707916706.jpg"
+  },
+  {
+    "id": "kprqh1i81",
+    "cn": "予備予選前の練習",
+    "name": "予備予選前の練習",
+    "geo": [
+      35.0218,
+      138.8974
+    ],
+    "ep": 11,
+    "s": 412,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kprqh1i81-1716584917117.jpg"
+  },
+  {
+    "id": "kprzyuyx8",
+    "cn": "水門　びゅうお",
+    "name": "水門　びゅうお",
+    "geo": [
+      35.0813,
+      138.8545
+    ],
+    "ep": 11,
+    "s": 662,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kprzyuyx8-1716585514799.jpg"
+  },
+  {
+    "id": "kps3op6qy",
+    "cn": "水門 ​びゅうお",
+    "name": "水門 ​びゅうお",
+    "geo": [
+      35.0812,
+      138.8545
+    ],
+    "ep": 11,
+    "s": 762,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kps3op6qy-1716585723209.jpg"
+  },
+  {
+    "id": "kpshfvuag",
+    "cn": "曜の家（欧蘭陀館 下河原店）",
+    "name": "曜の家（欧蘭陀館 下河原店）",
+    "geo": [
+      35.0906,
+      138.8582
+    ],
+    "ep": 11,
+    "s": 974,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kpshfvuag-1716586578183.jpg"
+  },
+  {
+    "id": "kpskteerb",
+    "cn": "曜の家の前",
+    "name": "曜の家の前",
+    "geo": [
+      35.0907,
+      138.8582
+    ],
+    "ep": 11,
+    "s": 1102,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kpskteerb-1716586762786.jpg"
+  },
+  {
+    "id": "kpt9k6wws",
+    "cn": "国府津海岸",
+    "name": "国府津海岸",
+    "geo": [
+      35.2797,
+      139.2141
+    ],
+    "ep": 12,
+    "s": 1080,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kpt9k6wws-1716588255067.jpg"
+  },
+  {
+    "id": "kptjerg8n",
+    "cn": "根府川站3号站台",
+    "name": "根府川駅３番線ホーム",
+    "geo": [
+      35.2028,
+      139.1388
+    ],
+    "ep": 12,
+    "s": 1302,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kptjerg8n-1716588853536.jpg"
+  },
+  {
+    "id": "kptl37gmy",
+    "cn": "接住了羽毛的千歌",
+    "name": "羽根を受け取った千歌",
+    "geo": [
+      35.203,
+      139.1389
+    ],
+    "ep": 12,
+    "s": 1332,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kptl37gmy-1716588987106.jpg"
+  },
+  {
+    "id": "krtybhbru",
+    "cn": "松月　結果待ち",
+    "name": "松月　結果待ち",
+    "geo": [
+      35.0223,
+      138.8979
+    ],
+    "ep": 12,
+    "s": 39,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krtybhbru-1716746489093.jpg"
+  },
+  {
+    "id": "kru0mczkn",
+    "cn": "松月の外",
+    "name": "松月の外",
+    "geo": [
+      35.0223,
+      138.8978
+    ],
+    "ep": 12,
+    "s": 69,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kru0mczkn-1716746615783.jpg"
+  },
+  {
+    "id": "krvyyoq9e",
+    "cn": "秋葉原駅電気街口",
+    "name": "秋葉原駅電気街口",
+    "geo": [
+      35.6981,
+      139.7721
+    ],
+    "ep": 1,
+    "s": 15,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krvyyoq9e-1716750867280.jpg"
+  },
+  {
+    "id": "krwdf27ks",
+    "cn": "浦の女学院　入学式",
+    "name": "浦の女学院　入学式",
+    "geo": [
+      35.0213,
+      138.8837
+    ],
+    "ep": 1,
+    "s": 168,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwdf27ks-1716751744253.jpg"
+  },
+  {
+    "id": "krwf5mlko",
+    "cn": "部活勧誘",
+    "name": "部活勧誘",
+    "geo": [
+      35.0211,
+      138.8836
+    ],
+    "ep": 1,
+    "s": 182,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwf5mlko-1716751846473.jpg"
+  },
+  {
+    "id": "krwghnm56",
+    "cn": "「我们要上车——！」",
+    "name": "「乗りますよぉぉぉ！」",
+    "geo": [
+      35.0205,
+      138.8973
+    ],
+    "ep": 1,
+    "s": 285,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwghnm56-1716751925304.jpg"
+  },
+  {
+    "id": "krwm9kgcn",
+    "cn": "発端丈山 見晴台",
+    "name": "発端丈山 見晴台",
+    "geo": [
+      35.0181,
+      138.899
+    ],
+    "ep": 1,
+    "s": 291,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwm9kgcn-1716752294501.jpg"
+  },
+  {
+    "id": "krwonng04",
+    "cn": "カエル館　果南家",
+    "name": "カエル館　果南家",
+    "geo": [
+      35.0328,
+      138.8903
+    ],
+    "ep": 1,
+    "s": 626,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwonng04-1716752423945.jpg"
+  },
+  {
+    "id": "krwnd6x4c",
+    "cn": "ヨハネ登場",
+    "name": "ヨハネ登場",
+    "geo": [
+      35.0211,
+      138.8836
+    ],
+    "ep": 1,
+    "s": 416,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwnd6x4c-1716752344494.jpg"
+  },
+  {
+    "id": "krwqlkaes",
+    "cn": "「嘛 我和千歌你们不一样，是高三生」",
+    "name": "「まあ、私は千歌たちと違って、３年生だしね」",
+    "geo": [
+      35.0328,
+      138.8902
+    ],
+    "ep": 1,
+    "s": 670,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwqlkaes-1716752539830.jpg"
+  },
+  {
+    "id": "krwrv3kh6",
+    "cn": "カエル館のデッキ",
+    "name": "カエル館のデッキ",
+    "geo": [
+      35.0328,
+      138.8902
+    ],
+    "ep": 1,
+    "s": 650,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwrv3kh6-1716752614465.jpg"
+  },
+  {
+    "id": "krwu2f85q",
+    "cn": "家旁的班车站",
+    "name": "家近くのバス停",
+    "geo": [
+      35.0198,
+      138.8967
+    ],
+    "ep": 1,
+    "s": 713,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwu2f85q-1716752746448.jpg"
+  },
+  {
+    "id": "krwv518cy",
+    "cn": "邂逅梨子",
+    "name": "梨子との出会い",
+    "geo": [
+      35.0209,
+      138.8975
+    ],
+    "ep": 1,
+    "s": 725,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwv518cy-1716752815990.jpg"
+  },
+  {
+    "id": "krwwv7nc5",
+    "cn": "梨子跳海处",
+    "name": "梨子が海に飛び込む所",
+    "geo": [
+      35.021,
+      138.8971
+    ],
+    "ep": 1,
+    "s": 745,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwwv7nc5-1716752916448.jpg"
+  },
+  {
+    "id": "krwypcqvt",
+    "cn": "从海里上来的二人",
+    "name": "海から上がってきた二人",
+    "geo": [
+      35.021,
+      138.8975
+    ],
+    "ep": 1,
+    "s": 791,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwypcqvt-1716753029057.jpg"
+  },
+  {
+    "id": "krwzyvyl3",
+    "cn": "「可不能放弃呀！」",
+    "name": "「諦めちゃダメなんだよ！」",
+    "geo": [
+      35.0245,
+      138.8851
+    ],
+    "ep": 1,
+    "s": 1128,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krwzyvyl3-1716753153763.jpg"
+  },
+  {
+    "id": "krx1pmkeo",
+    "cn": "学校下的班车站",
+    "name": "学校下のバス停",
+    "geo": [
+      35.0245,
+      138.8852
+    ],
+    "ep": 1,
+    "s": 1115,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krx1pmkeo-1716753208038.jpg"
+  },
+  {
+    "id": "krx38fmry",
+    "cn": "「曜酱!」",
+    "name": "「曜ちゃーん！」",
+    "geo": [
+      35.0245,
+      138.8851
+    ],
+    "ep": 1,
+    "s": 1170,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krx38fmry-1716753300389.jpg"
+  },
+  {
+    "id": "krx51j8ol",
+    "cn": "「露比酱也在!」",
+    "name": "「ルビィちゃんもいる！」",
+    "geo": [
+      35.0245,
+      138.8852
+    ],
     "ep": 2,
-    "lat": 35.09258,
-    "lng": 138.84489,
-    "ref": "",
-    "characterId": "chika"
+    "s": 383,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krx51j8ol-1716753411306.jpg"
   },
   {
-  "id": "kog35rnei_x",
-  "characterId": "chika",              
-  "cn": "淡岛码头 (测试)",
-  "name": "淡島船乗り場 (test)",
-  "lat": 35.0342,
-  "lng": 138.8905,
-  "ep": 1,
-  "s": 627,
-  "ref": "./screenshots/kog35rnei-1716481217772.jpg"
-},
-{
-  "id": "kpkpcc4bq_x",
-  "characterId": "chika",          
-  "cn": "伊豆長岡駅 (测试)",
-  "name": "伊豆長岡駅 (test)",
-  "lat": 35.0397,
-  "lng": 138.9472,
-  "ep": 6,
-  "s": 571,
-  "ref": "./screenshots/kpkpcc4bq-1716569622347.jpg"
-},
-{
-  "id": "kpksyfo5h_x",
-  "characterId": "chika",             
-  "cn": "松月店内 (测试)",
-  "name": "松月店内 (test)",
-  "lat": 35.0222,
-  "lng": 138.8979,
-  "ep": 6,
-  "s": 627,
-  "ref": "./screenshots/kpksyfo5h-1716569844025.jpg"
-},
-{
-  "id": "kpoufr3sr_x",
-  "characterId": "chika",             
-  "cn": "男坂 (测试)",
-  "name": "男坂 (test)",
-  "lat": 35.7013,
-  "lng": 139.7683,
-  "ep": 7,
-  "s": 714,
-  "ref": "./screenshots/kpoufr3sr-1716578640930.jpg"
-},
-{
-  "id": "kpprsbydw_x",
-  "characterId": "yoshiko",        
-  "cn": "淡島神社 (测试)",
-  "name": "淡島神社 (test)",
-  "lat": 35.033,
-  "lng": 138.8877,
-  "ep": 9,
-  "s": 246,
-  "ref": "./screenshots/kpprsbydw-1716580668216.jpg"
-}
-
+    "id": "krx6ai8bh",
+    "cn": "「乖 不要怕~」",
+    "name": "「ほーらほら、怖くない」",
+    "geo": [
+      35.0245,
+      138.8852
+    ],
+    "ep": 2,
+    "s": 410,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krx6ai8bh-1716753486326.jpg"
+  },
+  {
+    "id": "krx7odygh",
+    "cn": "小動物ルビィ",
+    "name": "小動物ルビィ",
+    "geo": [
+      35.0245,
+      138.8852
+    ],
+    "ep": 2,
+    "s": 409,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krx7odygh-1716753572349.jpg"
+  },
+  {
+    "id": "krx8vg7um",
+    "cn": "「你该不会是又想跳海吧？」",
+    "name": "「まさかまた海に入ろうとしてるー？」",
+    "geo": [
+      35.0209,
+      138.8974
+    ],
+    "ep": 2,
+    "s": 580,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krx8vg7um-1716753644675.jpg"
+  },
+  {
+    "id": "krxafuelc",
+    "cn": "海の音を探す",
+    "name": "海の音を探す",
+    "geo": [
+      35.0328,
+      138.8903
+    ],
+    "ep": 2,
+    "s": 721,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxafuelc-1716753736909.jpg"
+  },
+  {
+    "id": "krxezk0lk",
+    "cn": "沼津駅　北口",
+    "name": "沼津駅　北口",
+    "geo": [
+      35.1037,
+      138.8595
+    ],
+    "ep": 3,
+    "s": 495,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxezk0lk-1716754016343.jpg"
+  },
+  {
+    "id": "krxg3xoty",
+    "cn": "沼津駅　北口　ヨーソロー",
+    "name": "沼津駅　北口　ヨーソロー",
+    "geo": [
+      35.1036,
+      138.8598
+    ],
+    "ep": 3,
+    "s": 522,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxg3xoty-1716754083373.jpg"
+  },
+  {
+    "id": "krxhjq2qp",
+    "cn": "シネマサンシャイン沼津",
+    "name": "シネマサンシャイン沼津",
+    "geo": [
+      35.1041,
+      138.8607
+    ],
+    "ep": 3,
+    "s": 549,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxhjq2qp-1716754173360.jpg"
+  },
+  {
+    "id": "krxiia1k4",
+    "cn": "シネマサンシャイン沼津　善子",
+    "name": "シネマサンシャイン沼津　善子",
+    "geo": [
+      35.104,
+      138.8606
+    ],
+    "ep": 3,
+    "s": 559,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxiia1k4-1716754225084.jpg"
+  },
+  {
+    "id": "krxkqkumy",
+    "cn": "沼津駅　北口広場",
+    "name": "沼津駅　北口広場",
+    "geo": [
+      35.1037,
+      138.8599
+    ],
+    "ep": 3,
+    "s": 599,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxkqkumy-1716754359600.jpg"
+  },
+  {
+    "id": "krxm34i97",
+    "cn": "沼津駅　北口　花丸とルビィ",
+    "name": "沼津駅　北口　花丸とルビィ",
+    "geo": [
+      35.1039,
+      138.8593
+    ],
+    "ep": 3,
+    "s": 606,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxm34i97-1716754461077.jpg"
+  },
+  {
+    "id": "krxn56izx",
+    "cn": "沼津駅　北口　ルビィ",
+    "name": "沼津駅　北口　ルビィ",
+    "geo": [
+      35.1038,
+      138.8593
+    ],
+    "ep": 3,
+    "s": 614,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxn56izx-1716754505421.jpg"
+  },
+  {
+    "id": "krxzodeew",
+    "cn": "島郷海水浴場　北側",
+    "name": "島郷海水浴場　北側",
+    "geo": [
+      35.0674,
+      138.8751
+    ],
+    "ep": 3,
+    "s": 730,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krxzodeew-1716755271965.jpg"
+  },
+  {
+    "id": "kry9vukue",
+    "cn": "淡島 船のりば",
+    "name": "淡島 船のりば",
+    "geo": [
+      35.0325,
+      138.8932
+    ],
+    "ep": 4,
+    "s": 521,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kry9vukue-1716755881548.jpg"
+  },
+  {
+    "id": "kryjy4adn",
+    "cn": "淡島神社　鳥居",
+    "name": "淡島神社　鳥居",
+    "geo": [
+      35.032,
+      138.8902
+    ],
+    "ep": 4,
+    "s": 824,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kryjy4adn-1716756495555.jpg"
+  },
+  {
+    "id": "krykhwjvk",
+    "cn": "淡島神社参道「がんばって」",
+    "name": "淡島神社参道「がんばって」",
+    "geo": [
+      35.0324,
+      138.8898
+    ],
+    "ep": 4,
+    "s": 551,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krykhwjvk-1716756528178.jpg"
+  },
+  {
+    "id": "krymyq8ic",
+    "cn": "ロックテラス",
+    "name": "ロックテラス",
+    "geo": [
+      35.0316,
+      138.8892
+    ],
+    "ep": 4,
+    "s": 1021,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krymyq8ic-1716756673104.jpg"
+  },
+  {
+    "id": "kryqp1bx3",
+    "cn": "从狩野川河畔看到的善子家",
+    "name": "狩野川河畔から見る善子家",
+    "geo": [
+      35.0967,
+      138.8588
+    ],
+    "ep": 5,
+    "s": 69,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kryqp1bx3-1716756935144.jpg"
+  },
+  {
+    "id": "krysqf0mn",
+    "cn": "善子家（ナティ沼津11楼东南侧）",
+    "name": "善子家（ナティ沼津11階南東側）",
+    "geo": [
+      35.0964,
+      138.8583
+    ],
+    "ep": 5,
+    "s": 63,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krysqf0mn-1716757039836.jpg"
+  },
+  {
+    "id": "kryz6g9wf",
+    "cn": "三津郵便局",
+    "name": "三津郵便局",
+    "geo": [
+      35.0229,
+      138.8981
+    ],
+    "ep": 5,
+    "s": 887,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kryz6g9wf-1716757409328.jpg"
+  },
+  {
+    "id": "krz0cpldx",
+    "cn": "善子家の下",
+    "name": "善子家の下",
+    "geo": [
+      35.0965,
+      138.8584
+    ],
+    "ep": 5,
+    "s": 1214,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krz0cpldx-1716757488105.jpg"
+  },
+  {
+    "id": "krz195bsf",
+    "cn": "善子追逐战",
+    "name": "善子を追いかける",
+    "geo": [
+      35.0965,
+      138.8585
+    ],
+    "ep": 5,
+    "s": 1227,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krz195bsf-1716757534621.jpg"
+  },
+  {
+    "id": "krz3zg8i9",
+    "cn": "アーケード名店街",
+    "name": "アーケード名店街",
+    "geo": [
+      35.0982,
+      138.857
+    ],
+    "ep": 5,
+    "s": 1234,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krz3zg8i9-1716757714869.jpg"
+  },
+  {
+    "id": "krz5m1cwn",
+    "cn": "香香飯店",
+    "name": "香香飯店",
+    "geo": [
+      35.1005,
+      138.8581
+    ],
+    "ep": 5,
+    "s": 1236,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krz5m1cwn-1716757798887.jpg"
+  },
+  {
+    "id": "krz7iwpq4",
+    "cn": "沼津駅",
+    "name": "沼津駅",
+    "geo": [
+      35.1024,
+      138.8595
+    ],
+    "ep": 5,
+    "s": 1245,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krz7iwpq4-1716757918145.jpg"
+  },
+  {
+    "id": "krz9e8oaz",
+    "cn": "沼津バーガー",
+    "name": "沼津バーガー",
+    "geo": [
+      35.0838,
+      138.8583
+    ],
+    "ep": 5,
+    "s": 1254,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krz9e8oaz-1716758029311.jpg"
+  },
+  {
+    "id": "krzb38ia6",
+    "cn": "沼津港",
+    "name": "沼津港",
+    "geo": [
+      35.0829,
+      138.8582
+    ],
+    "ep": 5,
+    "s": 1250,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzb38ia6-1716758130434.jpg"
+  },
+  {
+    "id": "krzg6o7gm",
+    "cn": "噴水",
+    "name": "噴水",
+    "geo": [
+      35.0357,
+      138.887
+    ],
+    "ep": 6,
+    "s": 64,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzg6o7gm-1716758444934.jpg"
+  },
+  {
+    "id": "krzhi7ney",
+    "cn": "海浜　練習後",
+    "name": "海浜　練習後",
+    "geo": [
+      35.0204,
+      138.8971
+    ],
+    "ep": 6,
+    "s": 392,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzhi7ney-1716758519031.jpg"
+  },
+  {
+    "id": "krzjc3uw3",
+    "cn": "長浜城跡　PV撮影",
+    "name": "長浜城跡　PV撮影",
+    "geo": [
+      35.0181,
+      138.888
+    ],
+    "ep": 6,
+    "s": 472,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzjc3uw3-1716758682266.jpg"
+  },
+  {
+    "id": "krzljzt4k",
+    "cn": "「我看得到，就在——那！」",
+    "name": "「見える、あそこーよ！」",
+    "geo": [
+      35.0181,
+      138.8879
+    ],
+    "ep": 6,
+    "s": 505,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzljzt4k-1716758767064.jpg"
+  },
+  {
+    "id": "krzmz1ybc",
+    "cn": "「错了啦，噗噗」",
+    "name": "「違います―、ﾋﾟｰｯ」",
+    "geo": [
+      35.0181,
+      138.8878
+    ],
+    "ep": 6,
+    "s": 509,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzmz1ybc-1716758848932.jpg"
+  },
+  {
+    "id": "krzqa648o",
+    "cn": "長浜城跡　PV撮影　花丸",
+    "name": "長浜城跡　PV撮影　花丸",
+    "geo": [
+      35.0183,
+      138.8879
+    ],
+    "ep": 6,
+    "s": 517,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzqa648o-1716759057056.jpg"
+  },
+  {
+    "id": "krzr5m0wp",
+    "cn": "「怎么样？这雄伟的富士山！」",
+    "name": "「どうですか？この雄大な富士山！」",
+    "geo": [
+      35.0183,
+      138.8879
+    ],
+    "ep": 6,
+    "s": 524,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzr5m0wp-1716759101164.jpg"
+  },
+  {
+    "id": "krzv5hepy",
+    "cn": "三の浦総合案内所",
+    "name": "三の浦総合案内所",
+    "geo": [
+      35.0176,
+      138.8933
+    ],
+    "ep": 6,
+    "s": 531,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzv5hepy-1716759342761.jpg"
+  },
+  {
+    "id": "krzx4b80u",
+    "cn": "PV撮影　沼津駅　曜",
+    "name": "PV撮影　沼津駅　曜",
+    "geo": [
+      35.1021,
+      138.8591
+    ],
+    "ep": 6,
+    "s": 547,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzx4b80u-1716759461837.jpg"
+  },
+  {
+    "id": "krzy1hqpq",
+    "cn": "PV撮影　仲見世商店街　曜",
+    "name": "PV撮影　仲見世商店街　曜",
+    "geo": [
+      35.1018,
+      138.8583
+    ],
+    "ep": 6,
+    "s": 550,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzy1hqpq-1716759520604.jpg"
+  },
+  {
+    "id": "krzz7i6rn",
+    "cn": "三津坂西",
+    "name": "三津坂西",
+    "geo": [
+      35.0251,
+      138.9046
+    ],
+    "ep": 6,
+    "s": 554,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/krzz7i6rn-1716759609068.jpg"
+  },
+  {
+    "id": "ks01e7pey",
+    "cn": "海開き　梨子",
+    "name": "海開き　梨子",
+    "geo": [
+      35.0206,
+      138.8974
+    ],
+    "ep": 6,
+    "s": 1084,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks01e7pey-1716759740996.jpg"
+  },
+  {
+    "id": "ks04829kc",
+    "cn": "東京へ出発　善子",
+    "name": "東京へ出発　善子",
+    "geo": [
+      35.1024,
+      138.8595
+    ],
+    "ep": 7,
+    "s": 481,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks04829kc-1716759893267.jpg"
+  },
+  {
+    "id": "ks07plamf",
+    "cn": "熱海駅　４番線",
+    "name": "熱海駅　４番線",
+    "geo": [
+      35.1039,
+      139.078
+    ],
+    "ep": 7,
+    "s": 531,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks07plamf-1716760112053.jpg"
+  },
+  {
+    "id": "ks09h839a",
+    "cn": "アイドルショップ",
+    "name": "アイドルショップ",
+    "geo": [
+      35.7017,
+      139.7714
+    ],
+    "ep": 7,
+    "s": 649,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks09h839a-1716760216003.jpg"
+  },
+  {
+    "id": "ks0f8r4p5",
+    "cn": "神田明神　鳥居",
+    "name": "神田明神　鳥居",
+    "geo": [
+      35.7008,
+      139.7668
+    ],
+    "ep": 7,
+    "s": 1117,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks0f8r4p5-1716760560105.jpg"
+  },
+  {
+    "id": "ks0g4oer5",
+    "cn": "昌平橋",
+    "name": "昌平橋",
+    "geo": [
+      35.6985,
+      139.7689
+    ],
+    "ep": 7,
+    "s": 1132,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks0g4oer5-1716760611506.jpg"
+  },
+  {
+    "id": "ks0b78tgg",
+    "cn": "神田明神　Saint Snowとの出会い",
+    "name": "神田明神　Saint Snowとの出会い",
+    "geo": [
+      35.7017,
+      139.7674
+    ],
+    "ep": 7,
+    "s": 778,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks0b78tgg-1716760314135.jpg"
+  },
+  {
+    "id": "ks0j3x7gb",
+    "cn": "东京铁塔",
+    "name": "東京タワー",
+    "geo": [
+      35.6605,
+      139.7293
+    ],
+    "ep": 8,
+    "s": 251,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks0j3x7gb-1716760790990.jpg"
+  },
+  {
+    "id": "ks0n7r9sh",
+    "cn": "予選失敗　狩野川河畔",
+    "name": "予選失敗　狩野川河畔",
+    "geo": [
+      35.0978,
+      138.8596
+    ],
+    "ep": 8,
+    "s": 716,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks0n7r9sh-1716761040076.jpg"
+  },
+  {
+    "id": "ks0px56w3",
+    "cn": "「果南...」",
+    "name": "「果南...」",
+    "geo": [
+      35.0348,
+      138.8856
+    ],
+    "ep": 8,
+    "s": 927,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks0px56w3-1716761204134.jpg"
+  },
+  {
+    "id": "ks0ssxqz0",
+    "cn": "「为什么不告诉我？」",
+    "name": "「なんで伝えなかったの？」",
+    "geo": [
+      35.0173,
+      138.8934
+    ],
+    "ep": 9,
+    "s": 966,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks0ssxqz0-1716761378716.jpg"
+  },
+  {
+    "id": "ks0xbqkl3",
+    "cn": "東京駅丸の内北口",
+    "name": "東京駅丸の内北口",
+    "geo": [
+      35.6822,
+      139.7662
+    ],
+    "ep": 12,
+    "s": 568,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks0xbqkl3-1716761670102.jpg"
+  },
+  {
+    "id": "ks102omz0",
+    "cn": "八重洲側への自由通路「土特产之类的...」",
+    "name": "八重洲側への自由通路「お土産とか...」",
+    "geo": [
+      35.6823,
+      139.7664
+    ],
+    "ep": 12,
+    "s": 598,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks102omz0-1716761952505.jpg"
+  },
+  {
+    "id": "ks13ym803",
+    "cn": "八重洲側への自由通路　试图藏起土特产的梨子",
+    "name": "八重洲側への自由通路　お土産隠そうとしている梨子",
+    "geo": [
+      35.6823,
+      139.7664
+    ],
+    "ep": 12,
+    "s": 600,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks13ym803-1716762057772.jpg"
+  },
+  {
+    "id": "ktwu48mxt",
+    "cn": "とさわや对面的公交站",
+    "name": "とさわやの向こうのバス停",
+    "geo": [
+      35.0228,
+      138.898
+    ],
+    "ep": 5,
+    "s": 858,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ktwu48mxt-1716909482646.jpg"
+  },
+  {
+    "id": "kry0ko9dw",
+    "cn": "島郷海水浴場　Aqours",
+    "name": "島郷海水浴場　Aqours",
+    "geo": [
+      35.0674,
+      138.8751
+    ],
+    "ep": null,
+    "s": null,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kry0ko9dw-1716755319241.jpg"
+  },
+  {
+    "id": "kry5bt9b0",
+    "cn": "ED",
+    "name": "ED",
+    "geo": [
+      35.0245,
+      138.8852
+    ],
+    "ep": null,
+    "s": null,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kry5bt9b0-1716755606525.jpg"
+  },
+  {
+    "id": "kry7jwvgp",
+    "cn": "OP",
+    "name": "OP",
+    "geo": [
+      35.0246,
+      138.8852
+    ],
+    "ep": null,
+    "s": null,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/kry7jwvgp-1716755737905.jpg"
+  },
+  {
+    "id": "ks1evxtra",
+    "cn": "1单　富士見隧道西口",
+    "name": "1st Single　富士見トンネル西口",
+    "geo": [
+      35.0184,
+      138.8949
+    ],
+    "ep": "",
+    "s": 5,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks1evxtra-1716762725673.jpg"
+  },
+  {
+    "id": "ks1ihmrlr",
+    "cn": "1单　学校下",
+    "name": "1st Single　学校下",
+    "geo": [
+      35.024,
+      138.8858
+    ],
+    "ep": null,
+    "s": 66,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks1ihmrlr-1716762930592.jpg"
+  },
+  {
+    "id": "ks1r56dhe",
+    "cn": "2单　ショースタジアム",
+    "name": "2nd Single　ショースタジアム",
+    "geo": [
+      35.0194,
+      138.8961
+    ],
+    "ep": "",
+    "s": 45,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks1r56dhe-1716763455997.jpg"
+  },
+  {
+    "id": "ks1x398io",
+    "cn": "2单　开头　やまや旅館",
+    "name": "2nd Single　初頭　やまや旅館",
+    "geo": [
+      35.0241,
+      138.8987
+    ],
+    "ep": null,
+    "s": 5,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks1x398io-1716763814119.jpg"
+  },
+  {
+    "id": "ks1yyu043",
+    "cn": "2单　やまや旅館外",
+    "name": "2nd Single　やまや旅館外",
+    "geo": [
+      35.024,
+      138.8987
+    ],
+    "ep": null,
+    "s": 59,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks1yyu043-1716763926819.jpg"
+  },
+  {
+    "id": "ks214902j",
+    "cn": "2单　伊豆・三津シーパラダイス外",
+    "name": "2nd Single　伊豆・三津シーパラダイス外",
+    "geo": [
+      35.02,
+      138.8967
+    ],
+    "ep": null,
+    "s": 91,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks214902j-1716764088448.jpg"
+  },
+  {
+    "id": "ks278s8zl",
+    "cn": "2单　イルカのモニュメント",
+    "name": "2nd Single　イルカのモニュメント",
+    "geo": [
+      35.0201,
+      138.8955
+    ],
+    "ep": null,
+    "s": 120,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks278s8zl-1716764439750.jpg"
+  },
+  {
+    "id": "ks2ae57nq",
+    "cn": "2单　",
+    "name": "2nd Single　",
+    "geo": [
+      35.0195,
+      138.8959
+    ],
+    "ep": null,
+    "s": 153,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks2ae57nq-1716764619007.jpg"
+  },
+  {
+    "id": "ks2c3tgh0",
+    "cn": "2单　イルカの海",
+    "name": "2nd Single　イルカの海",
+    "geo": [
+      35.0194,
+      138.8958
+    ],
+    "ep": null,
+    "s": 161,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks2c3tgh0-1716764723583.jpg"
+  },
+  {
+    "id": "ks2emn2ug",
+    "cn": "2单　くらげ万華鏡水槽",
+    "name": "2nd Single　くらげ万華鏡水槽",
+    "geo": [
+      35.0197,
+      138.896
+    ],
+    "ep": null,
+    "s": 165,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks2emn2ug-1716764874364.jpg"
+  },
+  {
+    "id": "ks2gevrah",
+    "cn": "2单　自然飼育場",
+    "name": "2nd Single　自然飼育場",
+    "geo": [
+      35.0192,
+      138.8956
+    ],
+    "ep": null,
+    "s": 188,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks2gevrah-1716764982143.jpg"
+  },
+  {
+    "id": "ks2xn3al5",
+    "cn": "3单　弁天島神社",
+    "name": "3rd Single　弁天島神社",
+    "geo": [
+      35.0199,
+      138.8856
+    ],
+    "ep": null,
+    "s": 54,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks2xn3al5-1716766024097.jpg"
+  },
+  {
+    "id": "ks31e0gux",
+    "cn": "3单　舞台  旧豊後森機関庫",
+    "name": "3rd Single　舞台  旧豊後森機関庫",
+    "geo": [
+      33.2814,
+      131.1581
+    ],
+    "ep": null,
+    "s": null,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks31e0gux-1716766280464.jpg"
+  },
+  {
+    "id": "ks345envz",
+    "cn": "3单　ドールハウスKIMURA",
+    "name": "3rd Single　ドールハウスKIMURA",
+    "geo": [
+      35.1002,
+      138.8574
+    ],
+    "ep": null,
+    "s": null,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks345envz-1716766416962.jpg"
+  },
+  {
+    "id": "ks3il34d3",
+    "cn": "3单　三島駅・伊豆箱根鉄道９番ホーム",
+    "name": "3rd Single　三島駅・伊豆箱根鉄道９番ホーム",
+    "geo": [
+      35.1263,
+      138.9111
+    ],
+    "ep": null,
+    "s": 95,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/ks3il34d3-1716767297829.jpg"
+  },
+  {
+    "id": "mmkdjg3am",
+    "cn": "芹沢​光治良​記念館",
+    "name": "芹沢​光治良​記念館",
+    "geo": [
+      35.0748,
+      138.8611
+    ],
+    "ep": "",
+    "s": null,
+    "ref": "https://image.anitabi.cn/user/0/bangumi/165553/points/mmkdjg3am-1721976107127.jpg"
+  },
+  {
+    "id": "qr4znqdqg",
+    "cn": "愛鷹広域公園 多目的競技場 杏树坐过的座位",
+    "name": "愛鷹広域公園 多目的競技場 杏樹が座った席",
+    "geo": [
+      35.156,
+      138.8531
+    ],
+    "ep": null,
+    "s": null,
+    "ref": "https://image.anitabi.cn/user/1093/bangumi/165553/points/qr4znqdqg-1733618817491.jpg"
+  }
 ]

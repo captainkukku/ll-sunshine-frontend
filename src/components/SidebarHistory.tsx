@@ -1,4 +1,3 @@
-/* SidebarHistory.tsx */
 import React from 'react';
 import { Point, CheckinInfo } from '../types';
 import './SidebarHistory.css';
@@ -10,33 +9,38 @@ interface Props {
 }
 
 const SidebarHistory: React.FC<Props> = ({ points, checkins, onSelect }) => {
-  // 只保留已打卡的点
-  const historyItems = points
-    .filter(p => checkins[p.id])
-    .map(p => {
-      const info = checkins[p.id]!;
-      const thumb = info.hasImage ? info.url : '/assets/placeholder.png';
-      return (
-        <div
-          key={p.id}
-          className="history-item"
-          onClick={() => onSelect(p.id)}
-        >
-          <img src={thumb} alt={p.name} className="history-thumb" />
-          <div className="history-name">{p.name}</div>
-        </div>
-      );
-    });
+  const checkedPoints = points.filter(p => !!checkins[p.id]);
 
   return (
     <div className="history-bar">
-      {historyItems.length > 0 ? (
-        historyItems
+      <div className="history-title">
+        <span role="img" aria-label="camera" style={{ marginRight: 6 }}>📷</span>
+        打卡历史
+      </div>
+      {checkedPoints.length === 0 ? (
+        <div className="history-empty-plain">暂无打卡</div>
       ) : (
-        <div className="history-empty">
-  <span role="img" aria-label="empty">🕳️</span> 🌈 这里还没有属于你的打卡记录哦！
-</div>
-
+        <ul className="history-list">
+          {checkedPoints.map(point => (
+            <li
+              key={point.id}
+              className="history-item"
+              onClick={() => onSelect(point.id)}
+              tabIndex={0}
+            >
+              {checkins[point.id] && checkins[point.id].url ? (
+                <img
+                  className="history-thumb"
+                  src={checkins[point.id].url}
+                  alt={point.name}
+                />
+              ) : (
+                <div className="history-thumb-placeholder">?</div>
+              )}
+              <div className="history-name">{point.name}</div>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );

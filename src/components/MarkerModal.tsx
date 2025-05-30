@@ -7,7 +7,8 @@ import './MarkerModal.css';
 interface Point {
   id: string;
   name: string;
-  episode?: string;
+  ep?: number | null;     // 第几话
+  s?: number | null;      // 第几秒
   ref?: string;
 }
 
@@ -25,6 +26,13 @@ interface Props {
 }
 
 type Status = 'none' | 'noImage' | 'compose' | 'withImage';
+
+// helper: 将秒数转换为 mm:ss 格式
+function formatTime(sec: number): string {
+  const minutes = Math.floor(sec / 60);
+  const seconds = sec % 60;
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
 
 const MarkerModal: React.FC<Props> = ({
   data,
@@ -56,7 +64,6 @@ const MarkerModal: React.FC<Props> = ({
   // 点击「生成对比图」
   const handleGenerate = async () => {
     if (!file || !data.ref) return;
-    // 合成并上传
     const blob = await composeImages(
       data.ref.replace('./', '/data/'),
       shotUrl
@@ -85,7 +92,7 @@ const MarkerModal: React.FC<Props> = ({
     setStatus('none');
   };
 
-  // 从合成态退回上一个状态
+  // 取消合成预览
   const handleCancelCompose = () => {
     setStatus(checkin ? 'noImage' : 'none');
   };
@@ -93,25 +100,31 @@ const MarkerModal: React.FC<Props> = ({
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-container" onClick={e => e.stopPropagation()}>
-        {/* 标题 + 第几话 */}
+        {/* 标题 + 第几话 + 秒数 */}
         <div className="modal-header">
           <h2>{data.name}</h2>
-          <p>第 {data.episode || '?'} 话</p>
+          <p>
+            第 {data.ep ?? '?'} 话
+            {data.s != null && ` ${formatTime(data.s)}`}
+          </p>
         </div>
 
-        {/* 原作截图 */} {/* ★ 只有在非「compose」时才显示这块 */}
-         {(status === 'none' || status === 'noImage') && (
+        {/* 原作截图 (none 或 noImage 状态) */}
+        {(status === 'none' || status === 'noImage') && (
           <div className="modal-screenshot">
             {data.ref ? (
-              <img src={data.ref.replace('./', '/data/')} alt="原作截图" />
+              <img
+                src={data.ref.replace('./', '/data/')}
+                alt="原作截图"
+              />
             ) : (
               <div className="modal-placeholder">暂无截图</div>
-          )}
-        </div>
-      )}
+            )}
+          </div>
+        )}
+
         {/* 底部动作区 */}
         <div className="modal-actions">
-          {/* 1. none: 未打卡 */}
           {status === 'none' && (
             <>
               <UploadArea onSelect={handleSelect} label="点击上传图片" />
@@ -121,7 +134,6 @@ const MarkerModal: React.FC<Props> = ({
             </>
           )}
 
-          {/* 2. noImage: 已打卡但还没传图 */}
           {status === 'noImage' && (
             <>
               <UploadArea onSelect={handleSelect} label="点击上传图片" />
@@ -131,7 +143,6 @@ const MarkerModal: React.FC<Props> = ({
             </>
           )}
 
-          {/* 3. compose: 合成预览，可拖拽/缩放 */}
           {status === 'compose' && (
             <>
               <CompareCanvas
@@ -147,7 +158,6 @@ const MarkerModal: React.FC<Props> = ({
             </>
           )}
 
-          {/* 4. withImage: 已生成对比图 */}
           {status === 'withImage' && (
             <>
               <img
@@ -179,7 +189,7 @@ const MarkerModal: React.FC<Props> = ({
 
 export default MarkerModal;
 
-/** helper: 合并左右两张图，返回 Blob */
+/** helper: 合并两张图，返回 Blob */
 const loadImg = (src: string): Promise<HTMLImageElement> =>
   new Promise((ok, err) => {
     const img = new Image();
@@ -200,9 +210,7 @@ const composeImages = async (
   canvas.width = w * 2;
   canvas.height = h;
   const ctx = canvas.getContext('2d')!;
-  // 左边原作
   ctx.drawImage(img1, 0, 0, w, h);
-  // 右边用户图（按照画布宽高自动拉伸／裁剪）
   ctx.drawImage(img2, w, 0, w, h);
   return new Promise(resolve =>
     canvas.toBlob(b => resolve(b!), 'image/jpeg', 0.9)

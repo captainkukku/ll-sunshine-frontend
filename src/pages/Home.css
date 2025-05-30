@@ -1,17 +1,116 @@
-/* src/pages/Home.css */
-.home-container {
-  display: flex;
-  height: 100%;      /* 填满 App 给的 100% */
-  overflow: hidden;   /* 防止双滚动条 */
-}
-
+/* ========== PC 端侧栏优化 ========== */
 .sidebar {
-  width: 280px;       /* 侧栏固定宽度 */
-  /* 侧栏自己内部滚动 */
-  overflow-y: auto;
+  width: 280px;               /* 改为 280px，比之前更宽一点 */
+  background: #e7f9fd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-right: 1px solid #ddeaf6;
 }
 
-.map-wrapper {
-  flex: 1;            /* 剩余空间都给地图 */
-  position: relative; /* 便于内部绝对定位 */
+/* 搜索框 */
+.search-input {
+  width: 85%;
+  margin: 0 auto 12px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1.2px solid #c7e7f9;
+  padding: 0 10px;
+  font-size: 0.95em;
+  background: #f9fcff;
+}
+
+/* 筛选 + 统计 横排并居中 */
+.filter-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;    /* 居中 */
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 12px;
+}
+.filter-block label {
+  font-size: 0.97em;
+  white-space: nowrap;
+}
+.filter-block .checked-count {
+  margin: 0;                  /* 取消 margin-left */
+  font-size: 0.95em;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* 历史标题居中 */
+.history-title {
+  text-align: center;         /* 居中 */
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #444;
+  margin: 12px 0 8px;
+  display: flex;
+  justify-content: center;    /* 居中 */
+  align-items: center;
+}
+
+/* 空历史文案 */
+.history-empty-plain {
+  color: #aaa;
+  font-size: 0.95em;
+  margin: 8px 0 20px;
+  text-align: center;
+}
+
+/* ========== 移动端上下布局 ========== */
+@media (max-width: 700px) {
+  .app-container {
+    display: flex !important;
+    flex-direction: column !important; /* 切上下 */
+  }
+  .sidebar {
+    width: 100vw;           /* 侧栏铺满上半 */
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddeaf6;
+  }
+  .search-input {
+    width: 90%;
+    margin-bottom: 8px;
+  }
+  .filter-block {
+    padding: 0 8px 8px;
+    gap: 8px;
+  }
+  .map-container {
+    flex: 1;
+    height: calc(100vh - /*侧栏实际高度*/ 200px); 
+    /* 如果你想地图铺满剩余，可不写 height */
+  }
+}
+
+/* Home.css */
+
+/* 整体容器：桌面左右，移动上下 */
+.app-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (max-width: 700px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100vw;
+    border-bottom: 1px solid #ddeaf6;
+    border-right: none;
+  }
+}
+
+/* 地图容器：撑满剩余空间 */
+.map-container {
+  flex: 1;
+  position: relative;
 }

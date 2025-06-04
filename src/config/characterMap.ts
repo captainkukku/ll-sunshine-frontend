@@ -1,7 +1,7 @@
 // src/config/characterMap.ts
 
 // 显式声明：任意字符串键 → 字符串
-const characterMap: Record<string, string> = {
+const characterMap: Record<string, string | string[]> = {
   "kog35rnei": ["chika", "you"],
   "kpkpcc4bq": "yoshiko",
   "kpksyfo5h": "mari",

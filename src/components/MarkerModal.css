@@ -5,27 +5,35 @@
   display: flex; align-items: center; justify-content: center;
   z-index: 1000;
 }
+
 .modal-container {
-  background: #fff;
-  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  background: rgb(245, 251, 255);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   padding: 1.5rem;
   width: 90%;
   max-width: 500px;
+  padding-top: 24px;
 }
+
 .modal-header h2 {
   margin: 0;
   font-size: 1.5rem;
   text-align: center;
 }
+
 .modal-header p {
   margin: 0.25rem 0 1rem;
   text-align: center;
   color: #666;
 }
+
 .modal-screenshot img {
   width: 100%;
   border-radius: 4px;
 }
+
 .modal-placeholder {
   width: 100%;
   height: 200px;
@@ -36,71 +44,117 @@
   justify-content: center;
   color: #bbb;
 }
+
 .modal-actions {
   margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
 }
-.btn-primary {
-  flex: 1;
+
+.btn-primary,
+.btn-outline {
+  flex: 1 1 48%;
   padding: 0.75rem;
+  min-width: 48%;
+  box-sizing: border-box;
+}
+
+.btn-primary {
   background: #66ccff;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
+
 .btn-outline {
-  flex: 1;
-  padding: 0.75rem;
   background: #fff;
   color: #333;
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
 }
+
 .btn-primary:hover {
   background: #55bbdd;
 }
+
 .btn-outline:hover {
   background: #fafafa;
 }
+
 .modal-preview {
   width: 100%;
   border-radius: 4px;
 }
 
-/* ====== 手机端（<= 600px）适配 ====== */
-@media (max-width: 600px) {
-  /* 上传区域在手机上变成和按钮一致的样式 */
-  .upload-area {
-    border: none;
-    background: #66ccff;      /* 原来主按钮色 */
-    color: #fff;
-    padding: 0.75rem;
-    border-radius: 4px;
-    margin: 0.5rem 0;
-    flex: none;
-  }
-  .upload-area:hover {
-    background: #55bbdd;
-  }
+.modal-content {
+  display: block;
+  padding: 0 12px;
+  max-height: 65vh;
+  overflow-y: auto;
+}
 
-  /* 主按钮和次按钮互换颜色 */
-  .btn-primary {
-    background: #f0f0f0;      /* 原来灰白色 */
-    color: #333;
+.browser-style-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.wall-browser-tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #f6f7f8;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  font-weight: 500;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  transform: translateY(1px);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.wall-browser-tab:hover {
+  background-color: #ebedf0;
+  color: #000;
+}
+
+.wall-browser-tab.active {
+  background-color: #ffffff;
+  color: #007bff;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  z-index: 2;
+  font-weight: bold;
+  box-shadow: inset 0 -2px 0 #007bff;
+}
+
+.wall-browser-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #007bff;
+  animation: slide-in 0.3s ease forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: scaleX(0);
+    transform-origin: center;
   }
-  .btn-primary:hover {
-    background: #e0e0e0;
-  }
-  .btn-outline {
-    background: #66ccff;      /* 原来主按钮色 */
-    color: #fff;
-    border: none;
-  }
-  .btn-outline:hover {
-    background: #55bbdd;
+  100% {
+    transform: scaleX(1);
+    transform-origin: center;
   }
 }

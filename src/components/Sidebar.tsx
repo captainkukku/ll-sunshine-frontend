@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import SearchBar from './SearchBar';
 import SidebarHistory from './SidebarHistory';
 import { Point, CheckinInfo } from '../types';
 import './Sidebar.css';
@@ -11,65 +12,80 @@ interface Props {
   onlyUnchecked: boolean;
   onToggleChecked: () => void;
   onToggleUnchecked: () => void;
-  query: string;
-  onSearch: (value: string) => void;
   onSelect: (id: string) => void;
-  checkedCount: number;     // ← 加上它
+  checkedCount: number;
   totalCount: number;
 }
 
-
 const Sidebar: React.FC<Props> = ({
   points,
-  query,
   checkedIds,
   checkedMap,
   onlyChecked,
   onlyUnchecked,
   onToggleChecked,
   onToggleUnchecked,
-  onSearch,
   onSelect,
   checkedCount,
   totalCount
-}) => (
-  <aside className="sidebar">
-    <div className="sidebar-header">
-      <img src="/assets/Aqours.png" className="logo-img" alt="Aqours" />
-    </div>
-    <input
-      className="search-input"
-      placeholder="搜索景点 / 角色…"
-      value={query}
-      onChange={e => onSearch(e.target.value)}
-    />
-    <div className="filter-block">
-      <label>
-        <input
-          type="checkbox"
-          checked={onlyUnchecked}
-          onChange={onToggleUnchecked}
+}) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 700);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-header">
+        <img src="/assets/Aqours.png" className="logo-img" alt="Aqours" />
+      </div>
+
+      <SearchBar
+        points={points}
+        checkedIds={checkedIds}
+        onlyChecked={onlyChecked}
+        onlyUnchecked={onlyUnchecked}
+        onSelect={onSelect}
+      />
+
+      <div className="stat-filter-row">
+        <div className="checked-count">
+          已打卡{checkedCount} / 总共{totalCount}
+        </div>
+        <div className="filter-block">
+          <label>
+            <input
+              type="checkbox"
+              checked={onlyUnchecked}
+              onChange={onToggleUnchecked}
+            />
+            未打卡
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={onlyChecked}
+              onChange={onToggleChecked}
+            />
+            已打卡
+          </label>
+        </div>
+      </div>
+
+      {/* 只在 PC 端渲染历史 */}
+      {!isMobile && (
+        <SidebarHistory
+          points={points}
+          checkins={checkedMap}
+          onSelect={onSelect}
         />
-        未打卡
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          checked={onlyChecked}
-          onChange={onToggleChecked}
-        />
-        已打卡
-      </label>
-    </div>
-    <div className="checked-count">
-      已打卡{checkedCount} / 总共{totalCount}
-    </div>
-    <SidebarHistory
-      points={points}
-      checkins={checkedMap}
-      onSelect={onSelect}
-    />
-  </aside>
-);
+      )}
+    </aside>
+  );
+};
 
 export default Sidebar;

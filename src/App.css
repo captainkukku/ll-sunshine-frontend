@@ -88,3 +88,11 @@
   max-height: 280px;
   border-radius: 8px;
 }
+/* 防止 Leaflet 撑破布局的终极一招 */
+.leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  max-height: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}

@@ -54,7 +54,9 @@ const MapView = forwardRef<MapViewRef, MapViewProps>(({
       if (showOnlyChecked && !checkedIds.has(pt.id)) return;
       if (showOnlyUnchecked && checkedIds.has(pt.id)) return;
 
-      const icon = createMapPinIcon(pt.characterId ?? 'default', size);
+      const raw = pt.characterId;
+const mainId = Array.isArray(raw) ? raw[0] : (raw ?? 'default');
+const icon = createMapPinIcon(mainId, size);
 
       const marker = L.marker([pt.lat, pt.lng], { icon });
 

@@ -2,7 +2,7 @@
 
 // 显式声明：任意字符串键 → 字符串
 const characterMap: Record<string, string> = {
-  "kog35rnei": "you",
+  "kog35rnei": ["chika", "you"],
   "kpkpcc4bq": "yoshiko",
   "kpksyfo5h": "mari",
   "kpoufr3sr": "riko",

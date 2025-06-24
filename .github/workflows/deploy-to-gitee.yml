@@ -27,4 +27,6 @@ jobs:
           git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_REPO }}.git
           git add .
           git commit -m "Deploy to Gitee Pages"
-          git push -f gitee HEAD:${{ secrets.GITEE_BRANCH }}
+          git branch -M main
+          git push -f gitee main
+

@@ -2,7 +2,7 @@ name: 🚀 CRA Deploy to Gitee Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main]  # 或改为 master，如果你 GitHub 主分支是 master 的话
 
 jobs:
   build-and-deploy:
@@ -16,17 +16,17 @@ jobs:
         run: npm ci
 
       - name: 🏗 Build project (CRA)
-        run: CI=false npm run build
+        run: CI=false npm run build  # 跳过 eslint 报错卡住问题
 
       - name: 🚚 Push to Gitee Pages
         run: |
-           cd build
-           git init
-           git config --global user.email "action@github.com"
-           git config --global user.name "GitHub Action"
-           git remote remove gitee || true
-           git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_REPO }}.gi
-           git add .
-           git commit -m "Deploy to Gitee Pages"
-           git branch -M main
-           git push -f gitee main
+          cd build
+          git init
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git remote remove gitee || true
+          git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_REPO }}.git
+          git add .
+          git commit -m "Deploy to Gitee Pages"
+          git branch -M main
+          git push -f gitee main

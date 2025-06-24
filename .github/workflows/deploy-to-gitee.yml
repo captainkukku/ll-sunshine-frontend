@@ -20,13 +20,13 @@ jobs:
 
       - name: 🚚 Push to Gitee Pages
         run: |
-          cd build
-          git init
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_REPO }}.git
-          git add .
-          git commit -m "Deploy to Gitee Pages"
-          git branch -M main
-          git push -f gitee main
-
+           cd build
+           git init
+           git config --global user.email "action@github.com"
+           git config --global user.name "GitHub Action"
+           git remote remove gitee || true
+           git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_REPO }}.git
+           git add .
+           git commit -m "Deploy to Gitee Pages"
+           git branch -M main
+           git push -f gitee main

@@ -1,9 +1,40 @@
-.compare-canvas {
+.compare-canvas-container {
   width: 100%;
-  height: auto;
+  overflow-x: auto;
   border: 1px dashed #ccc;
   border-radius: 6px;
-  touch-action: none;    /* 禁默认手势 */
-  user-select: none;
+  padding: 0.5rem 0.5rem 0 0.5rem;
   background: #fafafa;
+}
+.compare-canvas {
+  width: 100%;
+  min-height: 120px;
+  background: #fafafd;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 1px 6px 0 rgba(170, 200, 240, 0.04);
+}
+.compare-canvas canvas {
+  display: block;
+  max-width: 100%;
+  border-radius: 6px;
+}
+.compare-canvas {
+  width: 100%;
+  min-height: 120px;
+  background: #fafafd;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 1px 6px 0 rgba(170, 200, 240, 0.04);
+  /* 新增 ↓↓↓ */
+  max-width: 100%;           /* 限定不爆弹窗 */
+  overflow-x: auto;          /* 万一溢出还能滑动 */
+}
+
+.compare-canvas canvas {
+  display: block;
+  width: 100% !important;    /* 强制canvas自适应 */
+  height: auto !important;   /* 保持原比例 */
+  max-width: 100%;
+  border-radius: 6px;
 }

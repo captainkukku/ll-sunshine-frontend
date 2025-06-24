@@ -1,47 +1,43 @@
+/* 留言区整体 */
 .community-wall {
   padding: 1rem;
   font-family: 'Segoe UI', sans-serif;
-  animation: fadeIn 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 110px;
+  position: relative;
+  background: #f6faff;
+  border-radius: 12px;
 }
 
-
-
+/* 留言列表独立滚动 */
 .wall-entries {
+  flex: 1;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
   padding-top: 0.5rem;
 }
 
-.wall-entry {
-  background: white;
+/* 每条留言卡片 */
+.message-card {
+  background: #fff;
   border-radius: 10px;
   padding: 1rem;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-  animation: fadeInUp 0.3s ease;
 }
 
-.wall-header {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.6rem;
-}
-
-.character-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #ccc;
-}
-
-.wall-message {
+/* 留言文本 */
+.message-text {
   font-size: 15px;
   font-weight: 500;
   color: #333;
+  margin-bottom: 0.5rem;
 }
 
+/* 对比图 */
 .wall-image {
   width: 100%;
   border-radius: 6px;
@@ -49,40 +45,48 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.08);
 }
 
-.wall-likes {
+/* 底部功能栏 */
+.message-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 6px;
   font-size: 13px;
   color: #666;
 }
 
-.wall-divider {
-  margin-top: 1rem;
+/* 时间 */
+.message-time {
+  flex-grow: 1;
+  color: #999;
+}
+
+/* 点赞按钮 */
+.like-button {
+  background: none;
   border: none;
-  border-top: 1px dashed #ddd;
-}
-
-.wall-placeholder {
-  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
   color: #888;
-  padding: 2rem;
+  transition: color 0.2s;
 }
 
-/* 小动画加持 */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.like-button.liked {
+  color: #e25555;
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+
+/* 删除按钮 */
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+/* 占位提示 */
+.no-messages {
+  text-align: center;
+  color: #aaa;
+  padding: 1rem;
 }

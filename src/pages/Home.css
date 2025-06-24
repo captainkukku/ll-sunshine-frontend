@@ -1,6 +1,6 @@
 /* ========== PC 端侧栏优化 ========== */
 .sidebar {
-  width: 280px;
+  width: 300px;
   background: #e7f9fd;
   min-height: 100vh;
   display: flex;

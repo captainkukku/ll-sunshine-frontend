@@ -28,4 +28,4 @@ jobs:
           git add .
           git commit -m "Deploy to Gitee Pages"
           git branch -M master
-          git push -f gitee matster
+          git push -f gitee master

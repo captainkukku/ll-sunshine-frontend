@@ -24,7 +24,7 @@ jobs:
           git init
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_REPO }}.git
+          git remote add gitee https://oauth2:29b8a6a493414b1f771699676ffbcc3f@gitee.com/captainkuku/ll-sunshine.git
           git add .
           git commit -m "Deploy to Gitee Pages"
           git branch -M main

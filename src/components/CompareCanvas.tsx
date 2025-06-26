@@ -10,8 +10,9 @@ interface Props {
   initialCropPercent?: number;
 }
 
-const MAX_CANVAS_WIDTH = 800;  // 你喜欢多少宽都行
-const MAX_CANVAS_HEIGHT = 140; // 或360，看你弹窗最大能装多少
+const MAX_CANVAS_WIDTH = 800;
+const isMobile = window.innerWidth < 768;
+const MAX_CANVAS_HEIGHT = isMobile ? 100 : 140;
 
 const CompareCanvas: React.FC<Props> = ({
   official,
@@ -30,14 +31,12 @@ const CompareCanvas: React.FC<Props> = ({
   const dragStart = useRef<{ x: number; y: number } | null>(null);
   const [canvasScale, setCanvasScale] = useState(1);
 
-  // 算比例锁宽高，不超弹窗最大
   const getCanvasScale = (w: number, h: number) => {
     const sw = MAX_CANVAS_WIDTH / w;
     const sh = MAX_CANVAS_HEIGHT / h;
     return Math.min(1, sw, sh);
   };
 
-  // 渲染合成画布
   const draw = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -66,7 +65,6 @@ const CompareCanvas: React.FC<Props> = ({
       canvas.height = h1 * _canvasScale;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // 原作
       ctx.drawImage(
         img1,
         0,
@@ -79,7 +77,6 @@ const CompareCanvas: React.FC<Props> = ({
         h1 * _canvasScale
       );
 
-      // 用户图（裁剪，变换）
       ctx.save();
       ctx.beginPath();
       ctx.rect(w1 * _canvasScale, 0, cropW * _canvasScale, h1 * _canvasScale);
@@ -97,7 +94,6 @@ const CompareCanvas: React.FC<Props> = ({
       );
       ctx.restore();
 
-      // 裁剪手柄线
       ctx.save();
       ctx.strokeStyle = '#222';
       ctx.setLineDash([6, 6]);
@@ -114,7 +110,6 @@ const CompareCanvas: React.FC<Props> = ({
 
   useEffect(draw, [official, shot, scale, offsetX, offsetY, cropPercent]);
 
-  // 拖动用户图
   const onMouseDownImg = (e: React.MouseEvent) => {
     if (resizing) return;
     setDraggingImg(true);
@@ -129,7 +124,6 @@ const CompareCanvas: React.FC<Props> = ({
       setOffsetY((y) => y + dy / canvasScale);
       dragStart.current = { x: e.clientX, y: e.clientY };
     }
-    // 拖拽裁剪条
     if (resizing && dragStart.current && img1Size.width) {
       const dx = e.clientX - dragStart.current.x;
       setCropPercent((p) =>
@@ -143,8 +137,6 @@ const CompareCanvas: React.FC<Props> = ({
     setResizing(false);
     dragStart.current = null;
   };
-
-  // 拖拽裁剪手柄
   const onMouseDownResize = (e: React.MouseEvent) => {
     setResizing(true);
     dragStart.current = { x: e.clientX, y: e.clientY };
@@ -152,13 +144,45 @@ const CompareCanvas: React.FC<Props> = ({
     e.preventDefault();
   };
 
-  // 缩放用户图（鼠标滚轮）
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (resizing) return;
+    setDraggingImg(true);
+    dragStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    e.stopPropagation();
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (draggingImg && dragStart.current) {
+      const dx = e.touches[0].clientX - dragStart.current.x;
+      const dy = e.touches[0].clientY - dragStart.current.y;
+      setOffsetX((x) => x + dx / canvasScale);
+      setOffsetY((y) => y + dy / canvasScale);
+      dragStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+    if (resizing && dragStart.current && img1Size.width) {
+      const dx = e.touches[0].clientX - dragStart.current.x;
+      setCropPercent((p) =>
+        Math.max(0.1, Math.min(1.1, p + dx / (img1Size.width * canvasScale)))
+      );
+      dragStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+  };
+  const onTouchEnd = () => {
+    setDraggingImg(false);
+    setResizing(false);
+    dragStart.current = null;
+  };
+  const onTouchStartResize = (e: React.TouchEvent) => {
+    setResizing(true);
+    dragStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
   const onWheel = (e: React.WheelEvent) => {
     e.preventDefault();
     setScale((s) => Math.max(0.2, Math.min(5, s * (e.deltaY > 0 ? 1.08 : 0.92))));
   };
 
-  // 视觉部分
   return (
     <div style={{ userSelect: 'none', width: '100%' }}>
       <div
@@ -178,6 +202,9 @@ const CompareCanvas: React.FC<Props> = ({
         onMouseMove={onMouseMoveImg}
         onMouseUp={onMouseUpAny}
         onMouseLeave={onMouseUpAny}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       >
         <canvas
           ref={canvasRef}
@@ -190,17 +217,13 @@ const CompareCanvas: React.FC<Props> = ({
             borderRadius: 16,
           }}
         />
-        {/* 裁剪手柄 */}
         {img1Size.width > 0 && (
           <div
             style={{
               position: 'absolute',
               top: 0,
-              left: `calc(${
-                ((img1Size.width + img1Size.width * cropPercent) /
-                  (img1Size.width + img1Size.width * cropPercent)) *
-                100
-              }% - 16px)`, // 始终右边
+              left: `calc(${((img1Size.width + img1Size.width * cropPercent) /
+                (img1Size.width + img1Size.width * cropPercent)) * 100}% - 16px)`,
               width: '16px',
               height: '100%',
               transform: `translateX(-50%)`,
@@ -211,8 +234,8 @@ const CompareCanvas: React.FC<Props> = ({
               justifyContent: 'center',
             }}
             onMouseDown={onMouseDownResize}
+            onTouchStart={onTouchStartResize}
           >
-            {/* 视觉手柄 */}
             <div
               style={{
                 width: '6px',
@@ -251,7 +274,9 @@ const CompareCanvas: React.FC<Props> = ({
         )}
       </div>
       <div style={{ fontSize: 12, color: '#999', marginTop: 6, textAlign: 'center' }}>
-        拖动图片移动，滚轮缩放，拖动右侧手柄裁剪宽度
+        {isMobile
+          ? '用手指拖动图片，双指缩放，拖右侧手柄裁剪宽度'
+          : '拖动图片移动，滚轮缩放，拖动右侧手柄裁剪宽度'}
       </div>
     </div>
   );

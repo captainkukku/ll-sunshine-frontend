@@ -402,3 +402,8 @@
   min-width: 0; /* ✅ 避免超小宽度时换行 */
 }
 
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .compare-canvas-container {
+    height: 65vw;  /* 屏幕宽度的 65%，可调 */
+  }
+}

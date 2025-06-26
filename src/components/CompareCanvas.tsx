@@ -277,7 +277,7 @@ return (
           <div
             style={{
               width: 6,
-              height: '60%',
+              height: '90%',
               background: 'rgba(120,120,120,0.2)',
               borderRadius: 4,
               display: 'flex',

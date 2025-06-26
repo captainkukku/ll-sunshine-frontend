@@ -3,7 +3,7 @@
   overflow-x: auto;
   border: 1px dashed #ccc;
   border-radius: 6px;
-  padding: 0.5rem 0.5rem 0 0.5rem;
+  padding: 0.5rem 0.25rem 0 0.25rem;
   background: #fafafa;
 }
 .compare-canvas {
@@ -37,4 +37,13 @@
   height: auto !important;   /* 保持原比例 */
   max-width: 100%;
   border-radius: 6px;
+}
+
+/* 移动端缩放滑条宽度限制 */
+@media (max-width: 768px) {
+  .zoom-slider {
+    width: 220px !important;
+    margin: 8px auto;
+    display: block;
+  }
 }

@@ -89,18 +89,22 @@ const CompareCanvas: React.FC<Props> = ({
       ctx.beginPath();
       ctx.rect(w1 * _canvasScale, 0, cropW * _canvasScale, h1 * _canvasScale);
       ctx.clip();
-      const visibleW = Math.min(cropW, img2.width * scale);
+
+      const displayW = img2.width * scale;
+      const displayH = img2.height * scale;
+
       ctx.drawImage(
         img2,
         0,
         0,
-        visibleW / scale,
-        h1 / scale,
-        w1 * _canvasScale,
-        0,
-        visibleW * _canvasScale,
-        h1 * _canvasScale
+        img2.width,
+        img2.height,
+        w1 * _canvasScale + offsetX * _canvasScale,
+        offsetY * _canvasScale,
+        displayW * _canvasScale,
+        displayH * _canvasScale
       );
+
       ctx.restore();
 
       ctx.save();
@@ -269,7 +273,7 @@ const CompareCanvas: React.FC<Props> = ({
           <div
             style={{
               width: 6,
-              height: '60%',
+              height: '90%',
               background: 'rgba(120,120,120,0.2)',
               borderRadius: 4,
               display: 'flex',

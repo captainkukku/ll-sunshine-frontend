@@ -224,6 +224,7 @@ const CompareCanvas: React.FC<Props> = ({
           margin: '0 auto',
           background: '#fafbfc',
           borderRadius: 16,
+          touchAction: 'none',
         }}
         onWheel={onWheel}
         onMouseDown={onMouseDownImg}

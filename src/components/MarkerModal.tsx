@@ -73,7 +73,7 @@ const MarkerModal: React.FC<Props> = ({ data, checkin, onClose, onUpdate, onUplo
   const [confirmDialog, setConfirmDialog] = useState<null | { message: string, onConfirm: () => void }>(null);
 
   // 🧹 一键清除缓存（仅调试时启用）
-  const ENABLE_DEV_CACHE_CLEANUP = true; // 👈 发布后改为 false 或注释掉
+  const ENABLE_DEV_CACHE_CLEANUP = false; // 👈 发布后改为 false 或注释掉
 
   useEffect(() => {
     if (ENABLE_DEV_CACHE_CLEANUP && 'caches' in window) {

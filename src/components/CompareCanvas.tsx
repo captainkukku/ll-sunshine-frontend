@@ -18,9 +18,10 @@ const CompareCanvas: React.FC<Props> = ({
   official,
   shot,
   onTransformChange,
-  initialCropPercent = 0.5,
+  initialCropPercent = 1,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [img1Size, setImg1Size] = useState({ width: 0, height: 0 });
   const [scale, setScale] = useState(1);
   const [offsetX, setOffsetX] = useState(0);
@@ -30,6 +31,7 @@ const CompareCanvas: React.FC<Props> = ({
   const [resizing, setResizing] = useState(false);
   const dragStart = useRef<{ x: number; y: number } | null>(null);
   const [canvasScale, setCanvasScale] = useState(1);
+  const [initialized, setInitialized] = useState(false);
 
   const getCanvasScale = (w: number, h: number) => {
     const sw = MAX_CANVAS_WIDTH / w;
@@ -60,11 +62,17 @@ const CompareCanvas: React.FC<Props> = ({
       const _canvasScale = getCanvasScale(w1, h1);
       setCanvasScale(_canvasScale);
 
-      const cropW = Math.max(1, Math.min(w1 * 1.1, w1 * cropPercent));
+      if (!initialized) {
+        setScale(1);
+        setCropPercent(1);
+        setInitialized(true);
+      }
+
+      const cropW = w1 * cropPercent;
       canvas.width = (w1 + cropW) * _canvasScale;
       canvas.height = h1 * _canvasScale;
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       ctx.drawImage(
         img1,
         0,
@@ -108,7 +116,26 @@ const CompareCanvas: React.FC<Props> = ({
     });
   };
 
-  useEffect(draw, [official, shot, scale, offsetX, offsetY, cropPercent]);
+  useEffect(draw, [official, shot, offsetX, offsetY, cropPercent, scale]);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const touchHandler = (e: TouchEvent) => {
+      if (draggingImg || resizing) e.preventDefault();
+    };
+    wrapper.addEventListener('touchmove', touchHandler, { passive: false });
+
+    const wheelHandler = (e: WheelEvent) => {
+      e.preventDefault();
+    };
+    wrapper.addEventListener('wheel', wheelHandler, { passive: false });
+
+    return () => {
+      wrapper.removeEventListener('touchmove', touchHandler);
+      wrapper.removeEventListener('wheel', wheelHandler);
+    };
+  }, [draggingImg, resizing]);
 
   const onMouseDownImg = (e: React.MouseEvent) => {
     if (resizing) return;
@@ -180,12 +207,13 @@ const CompareCanvas: React.FC<Props> = ({
 
   const onWheel = (e: React.WheelEvent) => {
     e.preventDefault();
-    setScale((s) => Math.max(0.2, Math.min(5, s * (e.deltaY > 0 ? 1.08 : 0.92))));
+    setScale((s) => Math.max(0.2, Math.min(5, s * (e.deltaY < 0 ? 1.08 : 0.92))));
   };
 
   return (
     <div style={{ userSelect: 'none', width: '100%' }}>
       <div
+        ref={wrapperRef}
         style={{
           position: 'relative',
           overflow: 'hidden',
@@ -217,67 +245,75 @@ const CompareCanvas: React.FC<Props> = ({
             borderRadius: 16,
           }}
         />
-        {img1Size.width > 0 && (
+        <div
+          onMouseDown={onMouseDownResize}
+          onTouchStart={onTouchStartResize}
+          style={{
+            position: 'absolute',
+            top: '10%',
+            bottom: '10%',
+            right: 0,
+            width: 16,
+            cursor: 'ew-resize',
+            zIndex: 2,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: resizing ? 'rgba(173, 216, 230, 0.2)' : 'rgba(0,0,0,0.03)',
+            boxShadow: resizing ? '0 0 12px rgba(173, 216, 230, 0.6)' : 'none',
+            transition: 'background 0.3s, box-shadow 0.3s',
+          }}
+        >
           <div
             style={{
-              position: 'absolute',
-              top: 0,
-              left: `calc(${((img1Size.width + img1Size.width * cropPercent) /
-                (img1Size.width + img1Size.width * cropPercent)) * 100}% - 16px)`,
-              width: '16px',
-              height: '100%',
-              transform: `translateX(-50%)`,
-              cursor: 'ew-resize',
-              zIndex: 10,
+              width: 6,
+              height: '90%',
+              background: 'rgba(120,120,120,0.2)',
+              borderRadius: 4,
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'space-between',
+              padding: '4px 0',
             }}
-            onMouseDown={onMouseDownResize}
-            onTouchStart={onTouchStartResize}
           >
-            <div
-              style={{
-                width: '6px',
-                height: '80%',
-                background: 'rgba(100,100,100,0.18)',
-                borderRadius: '4px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div
-                style={{
-                  width: 16,
-                  height: 16,
-                  borderRadius: '50%',
-                  background: '#fff',
-                  border: '2px solid #999',
-                  marginBottom: 2,
-                }}
-              />
-              <div style={{ flex: 1, width: 2, background: '#aaa' }} />
-              <div
-                style={{
-                  width: 16,
-                  height: 16,
-                  borderRadius: '50%',
-                  background: '#fff',
-                  border: '2px solid #999',
-                  marginTop: 2,
-                }}
-              />
-            </div>
+            <div style={{
+              width: 14,
+              height: 14,
+              borderRadius: '50%',
+              background: '#fff',
+              border: '2px solid #999',
+            }} />
+            <div style={{ flex: 1, width: 2, background: '#aaa' }} />
+            <div style={{
+              width: 14,
+              height: 14,
+              borderRadius: '50%',
+              background: '#fff',
+              border: '2px solid #999',
+            }} />
           </div>
-        )}
+        </div>
       </div>
       <div style={{ fontSize: 12, color: '#999', marginTop: 6, textAlign: 'center' }}>
         {isMobile
-          ? '用手指拖动图片，双指缩放，拖右侧手柄裁剪宽度'
+          ? '用手指拖动图片，拖右侧手柄裁剪宽度，下方滑块缩放'
           : '拖动图片移动，滚轮缩放，拖动右侧手柄裁剪宽度'}
       </div>
+      {isMobile && (
+        <div style={{ marginTop: 12, textAlign: 'center' }}>
+          <label style={{ fontSize: 12, color: '#666', marginRight: 8 }}>缩放:</label>
+          <input
+            type="range"
+            min={0.2}
+            max={5}
+            step={0.01}
+            value={scale}
+            onChange={(e) => setScale(parseFloat(e.target.value))}
+            style={{ width: '70%' }}
+          />
+        </div>
+      )}
     </div>
   );
 };

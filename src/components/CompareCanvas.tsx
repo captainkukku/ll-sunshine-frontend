@@ -68,7 +68,8 @@ const CompareCanvas: React.FC<Props> = ({
         setInitialized(true);
       }
 
-      const cropW = w1 * cropPercent;
+      const cropW = w1; // 固定右侧绘图区域逻辑宽度 = 左图宽度
+      canvas.width = (w1 * 2) * _canvasScale; // 固定画布为 左 + 右原始宽度
       canvas.width = (w1 + cropW) * _canvasScale;
       canvas.height = h1 * _canvasScale;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -87,8 +88,9 @@ const CompareCanvas: React.FC<Props> = ({
 
       ctx.save();
       ctx.beginPath();
-      ctx.rect(w1 * _canvasScale, 0, cropW * _canvasScale, h1 * _canvasScale);
+      ctx.rect(w1 * _canvasScale, 0, w1 * cropPercent * _canvasScale, h1 * _canvasScale);
       ctx.clip();
+
 
       const displayW = img2.width * scale;
       const displayH = img2.height * scale;

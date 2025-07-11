@@ -16,34 +16,33 @@ const OfflineImage: React.FC<Props> = ({ markerId, url, ...rest }) => {
 useEffect(() => {
   let didCancel = false;
 
-  // 先试本地缓存
-  getHDImageFromLocal(markerId)
-    .then(blob => {
+  const loadImage = async () => {
+    try {
+      // 先加载本地缓存
+      const blob = await getHDImageFromLocal(markerId);
       if (didCancel) return;
       if (blob) {
         const objUrl = URL.createObjectURL(blob);
         setSrc(objUrl);
-      }
-    })
-    .catch(err => {
-      console.error("本地缓存加载失败", err);
-    });
-
-  // 再试网络图
-  if (url) {
-    fetch(url)
-      .then(res => {
+      } else if (url) {
+        // 本地没有 → 试加载网络图
+        const res = await fetch(url);
         if (didCancel) return;
         if (res.ok) {
           setSrc(url);
-          // 更新缓存
-          res.blob().then(blob => saveHDImageToLocal(markerId, blob));
+          // 保存到本地缓存
+          const newBlob = await res.blob();
+          await saveHDImageToLocal(markerId, newBlob);
+        } else {
+          console.warn("网络图加载失败，使用本地缓存");
         }
-      })
-      .catch(err => {
-        console.warn("Supabase 图片加载失败，继续用本地缓存", err);
-      });
-  }
+      }
+    } catch (err) {
+      console.error("加载对比图失败", err);
+    }
+  };
+
+  loadImage();
 
   return () => {
     didCancel = true;

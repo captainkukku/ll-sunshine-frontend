@@ -1,4 +1,5 @@
 import React from 'react';
+import OfflineImage from './OfflineImage';
 import { Point, CheckinInfo } from '../types';
 import './SidebarHistory.css';
 
@@ -29,9 +30,10 @@ const SidebarHistory: React.FC<Props> = ({ points, checkins, onSelect }) => {
               tabIndex={0}
             >
               {checkins[point.id] && checkins[point.id].url ? (
-                <img
+                <OfflineImage
                   className="history-thumb"
-                  src={checkins[point.id].url}
+                  markerId={point.id}
+                  url={checkins[point.id].url}
                   alt={point.name}
                 />
               ) : (

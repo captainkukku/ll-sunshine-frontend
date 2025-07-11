@@ -6,7 +6,13 @@ import CommunityWallPage from './CommunityWallPage';
 import ConfirmDialog from './ConfirmDialog';
 import './MarkerModal.css';
 import { composeImages } from '../utils/composeImages';
-import { uploadAndCache, deleteImageFromSupabase, deleteHDImageFromLocal, getUserUUID } from '../utils/compareImageManager';
+import {
+  uploadAndCacheAsync,
+  deleteImageFromSupabase,
+  deleteHDImageFromLocal,
+  removePendingUpload,
+  getUserUUID,
+} from '../utils/compareImageManager';
 import { postMessageToServer } from '../utils/communityWallManager';
 import { deleteMessageByPointAndUser } from '../utils/communityAPI';
 import { supabase } from '../utils/supabaseClient';
@@ -115,20 +121,23 @@ const MarkerModal: React.FC<Props> = ({ data, checkin, onClose, onUpdate, onUplo
       cropPercent
     );
     try {
-      const url = await uploadAndCache(blob, data.id);
+      const { url, uploaded } = await uploadAndCacheAsync(blob, data.id);
       setMergedUrl(url);
-      onUpdate({ hasImage: true, url });
+      onUpdate({ hasImage: true, url: uploaded ? url : undefined });
       setStatus('withImage');
     } catch (err) {
-      console.error('❌ 上传失败', err);
+      console.error('❌ 生成失败', err);
       setStatus('default');
     }
   };
 
   const confirmDelete = async () => {
-    if (!checkin?.url) return;
-    const path = checkin.url.split('/').slice(-2).join('/');
-    await deleteImageFromSupabase(path);
+    if (checkin?.url) {
+      const path = checkin.url.split('/').slice(-2).join('/');
+      await deleteImageFromSupabase(path);
+    } else {
+      await removePendingUpload(data.id);
+    }
     await deleteHDImageFromLocal(data.id);
     await deleteMessageByPointAndUser(data.id);
     setMergedUrl('');

@@ -50,11 +50,14 @@ export async function uploadImageToSupabase(blob: Blob, filename: string): Promi
   return `https://znzrepbljbywusntjkfx.supabase.co/storage/v1/object/public/${BUCKET}/${filename}`;
 }
 
-// ✅ IndexedDB 初始化
-const dbPromise = idbOpenDB('CompareImageDB', 1, {
-  upgrade(db) {
-    if (!db.objectStoreNames.contains('hdImages')) {
+// ✅ IndexedDB 初始化（v2 新增 pendingUploads）
+const dbPromise = idbOpenDB('CompareImageDB', 2, {
+  upgrade(db, oldVersion) {
+    if (oldVersion < 1 && !db.objectStoreNames.contains('hdImages')) {
       db.createObjectStore('hdImages');
+    }
+    if (oldVersion < 2 && !db.objectStoreNames.contains('pendingUploads')) {
+      db.createObjectStore('pendingUploads');
     }
   }
 });
@@ -89,6 +92,43 @@ export async function deleteImageFromSupabase(path: string) {
   }
 }
 
+// ✅ 待上传队列操作
+async function addPendingUpload(id: string, blob: Blob) {
+  const db = await dbPromise;
+  await db.put('pendingUploads', blob, id);
+}
+
+export async function removePendingUpload(id: string) {
+  const db = await dbPromise;
+  await db.delete('pendingUploads', id);
+}
+
+export async function processPendingUploads() {
+  const db = await dbPromise;
+  const tx = db.transaction('pendingUploads', 'readwrite');
+  const store = tx.objectStore('pendingUploads');
+  const keys = await store.getAllKeys();
+  for (const key of keys as string[]) {
+    const blob = await store.get(key);
+    try {
+      const url = await uploadImageToSupabase(blob, `public/${key}.jpg`);
+      await store.delete(key);
+
+      const raw = localStorage.getItem('checkins');
+      if (raw) {
+        const obj = JSON.parse(raw);
+        if (obj[key] && obj[key].hasImage && !obj[key].url) {
+          obj[key].url = url;
+          localStorage.setItem('checkins', JSON.stringify(obj));
+        }
+      }
+    } catch (err) {
+      console.error('❌ 重试上传失败:', err);
+    }
+  }
+  await tx.done;
+}
+
 
 // ✅ 一行集成上传逻辑
 export async function uploadAndCache(blob: Blob, markerId: string): Promise<string> {
@@ -98,4 +138,23 @@ export async function uploadAndCache(blob: Blob, markerId: string): Promise<stri
   const url = await uploadImageToSupabase(compressed, filename);
   await saveHDImageToLocal(markerId, blob);
   return url;
+}
+
+// ✅ 支持离线的异步上传逻辑
+export async function uploadAndCacheAsync(
+  blob: Blob,
+  markerId: string
+): Promise<{ url: string; uploaded: boolean }> {
+  const compressed = await compressImage(blob);
+  const filename = `public/${markerId}.jpg`;
+  try {
+    const url = await uploadImageToSupabase(compressed, filename);
+    await saveHDImageToLocal(markerId, blob);
+    return { url, uploaded: true };
+  } catch (err) {
+    console.error('❌ 上传失败，将在联网后重试', err);
+    await addPendingUpload(markerId, compressed);
+    await saveHDImageToLocal(markerId, blob);
+    return { url: URL.createObjectURL(compressed), uploaded: false };
+  }
 }

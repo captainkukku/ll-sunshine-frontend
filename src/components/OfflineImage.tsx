@@ -14,37 +14,39 @@ const OfflineImage: React.FC<Props> = ({ markerId, url, ...rest }) => {
   }, [url]);
 
 useEffect(() => {
-  let didCancel = false; // 避免组件卸载后 setState
+  let didCancel = false;
 
-  // 先尝试用本地缓存
-  getHDImageFromLocal(markerId).then(blob => {
-    if (didCancel) return;
-    if (blob) {
-      const objUrl = URL.createObjectURL(blob);
-      setSrc(objUrl); // 先显示本地图
-    }
-  });
+  // 先试本地缓存
+  getHDImageFromLocal(markerId)
+    .then(blob => {
+      if (didCancel) return;
+      if (blob) {
+        const objUrl = URL.createObjectURL(blob);
+        setSrc(objUrl);
+      }
+    })
+    .catch(err => {
+      console.error("本地缓存加载失败", err);
+    });
 
-  // 如果有网络，再尝试加载 Supabase 图
+  // 再试网络图
   if (url) {
     fetch(url)
       .then(res => {
         if (didCancel) return;
         if (res.ok) {
-          setSrc(url); // 更新为网络图
+          setSrc(url);
           // 更新缓存
-          fetch(url)
-            .then(r => r.blob())
-            .then(blob => saveHDImageToLocal(markerId, blob));
+          res.blob().then(blob => saveHDImageToLocal(markerId, blob));
         }
       })
       .catch(err => {
-        console.error("获取 Supabase 图失败，用本地缓存代替：", err);
+        console.warn("Supabase 图片加载失败，继续用本地缓存", err);
       });
   }
 
   return () => {
-    didCancel = true; // 清理逻辑
+    didCancel = true;
   };
 }, [url, markerId]);
 

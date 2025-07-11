@@ -29,7 +29,7 @@ const SidebarHistory: React.FC<Props> = ({ points, checkins, onSelect }) => {
               onClick={() => onSelect(point.id)}
               tabIndex={0}
             >
-              {checkins[point.id] && checkins[point.id].url ? (
+              {checkins[point.id] && checkins[point.id].hasImage ? (
                 <OfflineImage
                   className="history-thumb"
                   markerId={point.id}

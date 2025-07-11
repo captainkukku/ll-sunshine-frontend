@@ -4,6 +4,7 @@ import UploadArea from './UploadArea';
 import CompareCanvas from './CompareCanvas';
 import CommunityWallPage from './CommunityWallPage';
 import ConfirmDialog from './ConfirmDialog';
+import OfflineImage from './OfflineImage';
 import './MarkerModal.css';
 import { composeImages } from '../utils/composeImages';
 import {
@@ -253,7 +254,12 @@ const MarkerModal: React.FC<Props> = ({ data, checkin, onClose, onUpdate, onUplo
                 )}
                 {status === 'withImage' && (
                   <div className="modal-preview-wrapper">
-                    <img src={getCacheBustingUrl(mergedUrl)} className="modal-preview" alt="对比图" />
+                    <OfflineImage
+                      markerId={data.id}
+                      url={getCacheBustingUrl(mergedUrl)}
+                      className="modal-preview"
+                      alt="对比图"
+                    />
                     <div className="modal-preview-buttons">
                       <button className="btn-primary" onClick={() => download(mergedUrl, `compare-${data.id}.jpg`)}>下载对比图</button>
                       <UploadArea onSelect={handleSelect} label="重新上传" className="btn-outline" />
